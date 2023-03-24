@@ -10,7 +10,6 @@ import {
   Icon,
 } from './ModalLogout.styled';
 import fruitQuestion from '../../images/question.png';
-import { useTranslation } from 'react-i18next';
 import { Default } from '../Media/Media';
 import { useNavigate } from 'react-router-dom';
 import { selectToken } from 'redux/auth/authSelectors';
