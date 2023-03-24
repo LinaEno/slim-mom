@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FcQuestions } from 'react-icons/fc';
 import { logOut } from 'redux/auth/authOperation';
 import { closeModal } from 'redux/global/slice';
 import {
@@ -10,7 +9,7 @@ import {
   Button,
   Icon,
 } from './ModalLogout.styled';
-// import catLogout from '../../images/catLogout.jpg';
+import fruitQuestion from '../../images/question.png';
 import { useTranslation } from 'react-i18next';
 import { Default } from '../Media/Media';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +18,6 @@ import { useEffect } from 'react';
 
 const ModalLogout = () => {
   const dispatch = useDispatch();
-  const { t } = useTranslation();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
 
@@ -35,21 +33,20 @@ const ModalLogout = () => {
 
   return (
     <Wrapper>
-      <Question>{t('modalLogOutQuestion')}</Question>
+      <Question>Ви впевнені, що бажаєте вийти?</Question>
       <Content>
         <Default>
-          <FcQuestions size="144px" />
+          <Icon src={fruitQuestion} alt="fruit" width={200} />
         </Default>
         <ButtonsList>
           <Button type="button" onClick={modalLogout}>
-            {t('modalLogOutAcceptBtn')}
+            Так
           </Button>
           <Button type="button" onClick={closeModalLogout}>
-            {t('modalLogOutCancelBtn')}
+            Ні
           </Button>
         </ButtonsList>
       </Content>
-      {/* <Icon src={catLogout} alt="cat" width={300} /> */}
     </Wrapper>
   );
 };
