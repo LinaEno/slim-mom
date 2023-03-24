@@ -26,13 +26,12 @@ import {
   Error,
   IconSvg,
 } from './LoginForm.styled';
-// import { ReactComponent as Logo } from '../../images/svg/logo.svg';
-// import { ReactComponent as FrameLogin } from '../../images/svg/frameLogin.svg';
+import logo from '../../images/logo.png';
+import svgIcon from '../../images/bowl_fruit.png';
+
 // import emailIcon from '../../images/svg/email.svg';
 // import passIcon from '../../images/svg/password.svg';
 import { Desktop, Tablet, Mobile, Default } from '../Media/Media';
-
-// import svgIcon from '../../images/svg/frameLogin.svg';
 
 import { useTranslation } from 'react-i18next';
 import { TitleH1 } from 'components/RegistrationForm/Registration.styled';
@@ -73,20 +72,18 @@ const LoginForm = () => {
       <Default>
         <Preview>
           <Tablet>
-            {/* <IconSvg
+            <IconSvg
               src={svgIcon}
               alt="img"
               style={{ width: '260px', height: '250px' }}
-            /> */}
-            {/* <FrameLogin width={260} height={250} /> */}
+            />
           </Tablet>
           <Desktop>
-            {/* <FrameLogin width={435} height={420} /> */}
-            {/* <IconSvg
+            <IconSvg
               src={svgIcon}
               alt="img"
               style={{ width: '435px', height: '420px' }}
-            /> */}
+            />
           </Desktop>
           <Title>{t('appText')}</Title>
         </Preview>
@@ -94,8 +91,27 @@ const LoginForm = () => {
       <Backdrop>
         <Content>
           <LogoBox>
-            <Mobile>{/* <Logo width={30} height={30} /> */}</Mobile>
-            <Default>{/* <Logo width={40} height={40} /> */}</Default>
+            <Mobile>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '46px', height: '44px' }}
+              />
+            </Mobile>
+            <Tablet>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '46px', height: '44px' }}
+              />
+            </Tablet>
+            <Desktop>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '70px', height: '66px' }}
+              />
+            </Desktop>
             <TitleH1>{t('register.title')}</TitleH1>
           </LogoBox>
           <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">

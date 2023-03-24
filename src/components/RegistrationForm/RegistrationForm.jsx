@@ -35,7 +35,9 @@ import {
 import { Desktop, Tablet, Mobile, Default } from '../Media/Media';
 import css from './Ribbon.module.css';
 
-// import svgIcon from '../../images/svg/frameRegister.svg';
+import svgIcon from '../../images/bowl_vegetable2.png';
+import logo from '../../images/logo.png';
+
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
@@ -120,20 +122,18 @@ const RegistrationForm = () => {
       <Default>
         <Preview>
           <Tablet>
-            {/* <IconSvg
+            <IconSvg
               src={svgIcon}
-              alt="img"
+              alt="vegetable"
               style={{ width: '260px', height: '250px' }}
-            /> */}
-            {/* <FrameRegister width={260} height={250} /> */}
+            />
           </Tablet>
           <Desktop>
-            {/* <IconSvg
+            <IconSvg
               src={svgIcon}
-              alt="email"
+              alt="vegetable"
               style={{ width: '435px', height: '420px' }}
-            /> */}
-            {/* <FrameRegister width={435} height={420} /> */}
+            />
           </Desktop>
           <Title>{t('appText')}</Title>
         </Preview>
@@ -141,8 +141,27 @@ const RegistrationForm = () => {
       <Backdrop>
         <Content>
           <LogoBox>
-            <Mobile>{/* <Logo width={30} height={30} /> */}</Mobile>
-            <Default>{/* <Logo width={40} height={40} /> */}</Default>
+          <Mobile>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '46px', height: '44px' }}
+              />
+            </Mobile>
+            <Tablet>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '46px', height: '44px' }}
+              />
+            </Tablet>
+            <Desktop>
+              <img
+                src={logo}
+                alt="img"
+                style={{ width: '70px', height: '66px' }}
+              />
+            </Desktop>
             <TitleH1>{t('register.title')}</TitleH1>
           </LogoBox>
 
