@@ -12,14 +12,12 @@ import { useTranslation } from 'react-i18next';
 
 import {
   Preview,
-  Title,
   RegisterSection,
   Backdrop,
   Content,
   FormBox,
   LogoBox,
   Label,
-  Icon,
   Eye,
   Input,
   ButtonsList,
@@ -38,7 +36,6 @@ import css from './Ribbon.module.css';
 import svgIcon from '../../images/bowl_vegetable2.png';
 import logo from '../../images/logo.png';
 
-
 const RegistrationForm = () => {
   const { t } = useTranslation();
 
@@ -46,21 +43,20 @@ const RegistrationForm = () => {
     .object({
       username: yup
         .string()
-        .required(t('registerFormUser'))
-        .min(2, t('registerFormEmailIsTooShort'))
-        .max(12, t('registerFormEmailIsTooLong')),
-      email: yup.string().email().required(t('registerFormEmail')),
+        .required(t('Введіть ваше імя'))
+        .min(3, 'Довжина імені повинна бути мінімум 3 символа')
+        .max(254, 'Довжина імені повинна бути максимум 254 символа'),
+      email: yup
+        .string()
+        .email()
+        .required('Введіть електронну адресу')
+        .min(3)
+        .max(254),
       password: yup
         .string()
-        .required(t('registerFormPassword'))
-        .min(6, t('registerFormPasswordIsTooShort'))
-        .max(12, t('registerFormPasswordIsTooLong')),
-      cpassword: yup
-        .string()
-        .required(t('registerFormConfirmPassword'))
-        .min(6, t('registerFormPasswordIsTooShort'))
-        .max(12, t('registerFormPasswordIsTooLong'))
-        .oneOf([yup.ref('password')], t('passwordError')),
+        .required('Введіть пароль')
+        .min(8, 'Довжина пароля повинна бути мінімум 8 символів')
+        .max(100, 'Довжина пароля повинна бути максимум 100 символів'),
     })
     .required();
   const {
@@ -68,15 +64,13 @@ const RegistrationForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const dispatch = useDispatch();
 
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const onSubmit = ({ username, email, password }) => {
     dispatch(registration({ username, email, password }));
@@ -86,7 +80,6 @@ const RegistrationForm = () => {
 
   const [ribbon, setRibbon] = useState('');
   const [pass, setPass] = useState('pass');
-  const [cpass, setCpass] = useState('cpass');
 
   useEffect(() => {
     if (pass.length > 5) {
@@ -94,27 +87,11 @@ const RegistrationForm = () => {
     } else if (pass.length <= 5) {
       setRibbon('shortPass');
     }
-
-    if (cpass === pass) {
-      setRibbon('corectPass');
-    }
-  }, [pass, cpass]);
+  }, [pass]);
 
   const handleChange = event => {
-    const { name, value } = event.target;
-
-    switch (name) {
-      case 'password':
-        setPass(value);
-        break;
-
-      case 'cpassword':
-        setCpass(value);
-        break;
-
-      default:
-        return;
-    }
+    const { value } = event.target;
+    setPass(value);
   };
 
   return (
@@ -135,13 +112,12 @@ const RegistrationForm = () => {
               style={{ width: '435px', height: '420px' }}
             />
           </Desktop>
-          <Title>{t('appText')}</Title>
         </Preview>
       </Default>
       <Backdrop>
         <Content>
           <LogoBox>
-          <Mobile>
+            <Mobile>
               <img
                 src={logo}
                 alt="img"
@@ -162,10 +138,20 @@ const RegistrationForm = () => {
                 style={{ width: '70px', height: '66px' }}
               />
             </Desktop>
-            <TitleH1>{t('register.title')}</TitleH1>
+            <TitleH1>Register</TitleH1>
           </LogoBox>
 
           <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+            <Label>
+              <Input
+                type="text"
+                {...register('username')}
+                placeholder={t('register.name')}
+              />
+            </Label>
+            {errors?.username && (
+              <Error style={{ top: '62%' }}>{errors.username.message}</Error>
+            )}
             <Label>
               <Input
                 type="email"
@@ -180,14 +166,14 @@ const RegistrationForm = () => {
               <Input
                 {...register('password')}
                 placeholder={t('register.password')}
-                type={toggle1 ? 'text' : 'password'}
+                type={toggle ? 'text' : 'password'}
                 onChange={handleChange}
               />
-              {!toggle1 ? (
+              {!toggle ? (
                 <Eye
                   id="passlock"
                   onClick={() => {
-                    setToggle1(!toggle1);
+                    setToggle(!toggle);
                   }}
                 >
                   <BsEyeSlashFill />
@@ -196,7 +182,7 @@ const RegistrationForm = () => {
                 <Eye
                   id="showpass"
                   onClick={() => {
-                    setToggle1(!toggle1);
+                    setToggle(!toggle);
                   }}
                 >
                   <BsEyeFill />
@@ -206,51 +192,10 @@ const RegistrationForm = () => {
             {errors?.password && (
               <Error style={{ top: '27%' }}>{errors.password.message}</Error>
             )}
-            <Label>
-              <Input
-                type={toggle2 ? 'text' : 'password'}
-                {...register('cpassword', {
-                  validate: value => value === getValues('password'),
-                })}
-                placeholder={t('register.cpassword')}
-                onChange={handleChange}
-              />
-              {!toggle2 ? (
-                <Eye
-                  id="passlock"
-                  onClick={() => {
-                    setToggle2(!toggle2);
-                  }}
-                >
-                  <BsEyeSlashFill />
-                </Eye>
-              ) : (
-                <Eye
-                  id="showpass"
-                  onClick={() => {
-                    setToggle2(!toggle2);
-                  }}
-                >
-                  <BsEyeFill />
-                </Eye>
-              )}
-              <Ribbon>
-                <div className={css[ribbon]} />
-              </Ribbon>
-            </Label>
-            {errors?.cpassword && (
-              <Error style={{ top: '46%' }}>{errors.cpassword.message}</Error>
-            )}
-            <Label>
-              <Input
-                type="text"
-                {...register('username')}
-                placeholder={t('register.name')}
-              />
-            </Label>
-            {errors?.username && (
-              <Error style={{ top: '62%' }}>{errors.username.message}</Error>
-            )}
+            <Ribbon>
+              <div className={css[ribbon]} />
+            </Ribbon>
+
             <ButtonsList>
               <ButtonActive type="submit">{t('register.btnReg')}</ButtonActive>
               <Button type="submit">

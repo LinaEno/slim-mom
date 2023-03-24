@@ -40,12 +40,17 @@ const LoginForm = () => {
   const { t } = useTranslation();
   const schema = yup
     .object({
-      email: yup.string().email().required(t('registerFormEmail')),
+      email: yup
+        .string()
+        .email()
+        .required('Введіть електронну адресу')
+        .min(3)
+        .max(254),
       password: yup
         .string()
-        .required(t('registerFormPassword'))
-        .min(6, t('registerFormPasswordIsTooShort'))
-        .max(12, t('registerFormPasswordIsTooLong')),
+        .required('Введіть пароль')
+        .min(8, 'Довжина пароля повинна бути мінімум 8 символів')
+        .max(100, 'Довжина пароля повинна бути максимум 100 символів'),
     })
     .required();
   const {
@@ -85,7 +90,6 @@ const LoginForm = () => {
               style={{ width: '435px', height: '420px' }}
             />
           </Desktop>
-          <Title>{t('appText')}</Title>
         </Preview>
       </Default>
       <Backdrop>
@@ -112,7 +116,7 @@ const LoginForm = () => {
                 style={{ width: '70px', height: '66px' }}
               />
             </Desktop>
-            <TitleH1>{t('register.title')}</TitleH1>
+            <TitleH1>Log In</TitleH1>
           </LogoBox>
           <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <Label>
