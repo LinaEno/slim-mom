@@ -33,7 +33,7 @@ export const IconSvg = styled.img`
   @media screen and (min-width: 768px) {
     width: 260;
     height: 250;
-    transform-origin: 50% 0;
+    /* transform-origin: 50% 0;
     animation: leaves 6s ease-in-out infinite alternate;
     @keyframes leaves {
       0% {
@@ -44,7 +44,7 @@ export const IconSvg = styled.img`
         transform: scale(2);
         -webkit-transform: scale(1);
       }
-    }
+    } */
   }
   @media screen and (min-width: 1280px) {
     width: 435px;
