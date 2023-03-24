@@ -20,10 +20,10 @@ import { useEffect } from 'react';
 const ModalLogout = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const closeModalLogout = () => dispatch(closeModal());
   const token = useSelector(selectToken);
   const navigate = useNavigate();
 
+  const closeModalLogout = () => dispatch(closeModal());
   const modalLogout = () => {
     dispatch(logOut());
     closeModalLogout();
