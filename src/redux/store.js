@@ -19,7 +19,7 @@ import { productsReducer } from './diary/slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'refreshToken', 'sid'],
 };
 
 export const store = configureStore({

@@ -64,20 +64,29 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+async function refreshUser(sid, refreshToken) {
+  const { data } = await backend({
+    data: { sid },
+    headers: { Authorization: refreshToken },
+    method: 'post',
+    url: `/auth/refresh`,
+  });
+  return data;
+}
+
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-
-    token.set(persistedToken);
+    console.log(state);
     try {
-      const { data } = await backend.post('/auth/refresh');
-      return data;
+      const { sid, refreshToken } = state.auth;
+      if (!sid) return thunkAPI.rejectWithValue(toast.error(null));
+      const result = await refreshUser(sid, refreshToken);
+
+      token.set(result.newAccessToken);
+      console.log(result);
+      return result;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message, toast.error(null));
     }

@@ -8,11 +8,16 @@ export const ButtonLogout = () => {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
+  const openModal = () => {
+    dispatch(openModalLogout());
+  };
+
   return (
     <Button
       type="button"
       aria-label="Logout"
-      onClick={() => dispatch(openModalLogout())}
+      // onClick={() => dispatch(openModalLogout())}
+      onClick={openModal}
     >
       {/* <Icon /> */}
       {!isMobile && t('header.btnExit')}
