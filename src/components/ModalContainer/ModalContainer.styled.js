@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as CloseIcon } from '../../images/svg/close.svg';
+// import { ReactComponent as CloseIcon } from '../../images/svg/close.svg';
 
 export const ModalMobile = styled.div`
   position: fixed;
@@ -59,8 +59,8 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const Icon = styled(CloseIcon)`
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-`;
+// export const Icon = styled(CloseIcon)`
+//   width: 16px;
+//   height: 16px;
+//   stroke: currentColor;
+// `;

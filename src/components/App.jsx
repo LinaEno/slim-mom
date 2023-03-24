@@ -8,6 +8,7 @@ import { Loader } from './Loader/Loader';
 import { selectError } from 'redux/calories/selectors';
 import { fetchCurrentUser } from 'redux/auth/authOperation';
 import { AuthRoute, NotAuthRoute } from 'routes';
+import Layout from './Layout/Layout';
 
 // const DashboardPage = lazy(() => import('pages/DashboardPage/DashboardPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
@@ -36,6 +37,7 @@ export const App = () => {
   // }, [error]);
   return (
     <>
+      <Layout />
       {isRefreshing ? (
         <Loader />
       ) : (

@@ -2,7 +2,7 @@ import { ButtonLogout } from 'components/ButtonLogout/ButtonLogout';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { randomAvatar } from '../../utils/randomAvatar';
-import { getUserName } from 'redux/auth/authSelectors';
+import { getUserName, selectIsLoggedIn } from 'redux/auth/authSelectors';
 // import { ReactComponent as Logo } from '../../images/Group.svg';
 import {
   HeaderStyled,
@@ -19,6 +19,7 @@ import Navigation from 'components/Navigation/Navigation';
 export const Header = () => {
   const userName = useSelector(getUserName);
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <HeaderStyled>
@@ -28,14 +29,16 @@ export const Header = () => {
           <Title>SlimMom</Title>
         </Link>
         <Navigation />
-        <UserBox>
-          <Avatar>
-            <img src={randomAvatar} alt="Avatar" />
-          </Avatar>
-          <UserName>{userName}</UserName>
-          {isTablet && <Delimiter></Delimiter>}
-          <ButtonLogout />
-        </UserBox>
+        {isLoggedIn && (
+          <UserBox>
+            <Avatar>
+              <img src={randomAvatar} alt="Avatar" />
+            </Avatar>
+            <UserName>{userName}</UserName>
+            {isTablet && <Delimiter></Delimiter>}
+            <ButtonLogout />
+          </UserBox>
+        )}
       </Container>
     </HeaderStyled>
   );
