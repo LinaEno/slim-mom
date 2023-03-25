@@ -7,10 +7,12 @@ import {
   getUserInfo,
 } from './authOperation';
 
+
 const initialState = {
   userName: '',
   userEmail: '',
   userId: null,
+  userData: {},
   token: null,
   isLoggedIn: false,
   isRefreshing: true,
@@ -64,6 +66,7 @@ const authSlice = createSlice({
         state.userName = payload.username;
         state.userEmail = payload.email;
         state.userId = payload.id;
+        state.userData = payload.userData;
       });
   },
 });

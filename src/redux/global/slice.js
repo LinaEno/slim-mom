@@ -16,6 +16,7 @@ import {
 
 const initialState = {
   isModalOpen: false,
+  isModalRecommendationOpen: false,
   isModalLogoutOpen: false,
   isLoading: false,
   error: null,
@@ -58,13 +59,18 @@ const globalSlice = createSlice({
     openModal(state) {
       state.isModalOpen = true;
     },
+    openModalRecommendation(state) {
+      state.isModalRecommendationOpen = true;
+    },
     openModalLogout(state) {
       state.isModalLogoutOpen = true;
     },
     closeModal(state) {
       state.isModalOpen = false;
       state.isModalLogoutOpen = false;
+      state.isModalRecommendationOpen = false;
     },
+    
   },
   extraReducers: builder => {
     builder
@@ -74,6 +80,6 @@ const globalSlice = createSlice({
   },
 });
 
-export const { openModal, openModalLogout, closeModal } = globalSlice.actions;
+export const { openModal, openModalLogout, openModalRecommendation, closeModal } = globalSlice.actions;
 
 export const globalReducer = globalSlice.reducer;
