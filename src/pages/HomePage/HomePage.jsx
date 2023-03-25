@@ -1,5 +1,8 @@
-import { useDispatch } from "react-redux";
-import { openModalRecommendation } from "redux/global/slice";
+import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
+import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
+import { useDispatch } from 'react-redux';
+import { openModalRecommendation } from 'redux/global/slice';
+import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -11,7 +14,12 @@ const HomePage = () => {
   return (
     <>
       <p>Hello</p>
-      <button type="button" onClick={openModal}>Почніть худнути</button>
+      <DiaryDateCalendar />
+      <DiaryAddProductForm />
+      <DiaryProductsList />
+      <button type="button" onClick={openModal}>
+        Почніть худнути
+      </button>
     </>
   );
 };

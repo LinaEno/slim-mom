@@ -7,7 +7,6 @@ import {
   getUserInfo,
 } from './authOperation';
 
-
 const initialState = {
   userName: '',
   userEmail: '',
@@ -29,17 +28,20 @@ const authSlice = createSlice({
       .addCase(registration.fulfilled, (state, { payload }) => {
         state.userName = payload.username;
         state.userEmail = payload.email;
-        state.userId = payload.user.id;
+        state.userId = payload.id;
         state.isLoggedIn = true;
-      })
-      .addCase(logIn.fulfilled, (state, { payload }) => {
-        state.isLoggedIn = true;
-        state.userName = payload.user.username;
-        state.userEmail = payload.user.email;
         state.token = payload.accessToken;
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
-        state.userId = payload.user.id;
+      })
+      .addCase(logIn.fulfilled, (state, { payload }) => {
+        state.isLoggedIn = true;
+        state.userName = payload.username;
+        state.userEmail = payload.email;
+        state.token = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.sid = payload.sid;
+        state.userId = payload.id;
       })
       .addCase(logOut.fulfilled, state => {
         state.isLoggedIn = false;
