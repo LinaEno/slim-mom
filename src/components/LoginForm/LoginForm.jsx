@@ -10,7 +10,6 @@ import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 
 import {
   Preview,
-  Title,
   LoginSection,
   Backdrop,
   Content,
