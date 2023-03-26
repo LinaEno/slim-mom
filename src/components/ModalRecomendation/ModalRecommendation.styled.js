@@ -73,7 +73,7 @@ export const ButtonStart = styled.button`
   height: 43px;
   width: 210px;
   border-radius: 30px;
-  border: 1px solid #FC842D;
+  border: 2px solid #FC842D;
   color: #fff;
   background-color: #FC842D;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
@@ -84,7 +84,7 @@ export const ButtonStart = styled.button`
   margin: 40px auto;
   
   &:hover {
-    border: 1px solid #FC842D;
+    border: 2px solid #FC842D;
     background-color: #fff;
     color: #FC842D;
     box-shadow: 0px 4px 10px #fff;

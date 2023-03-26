@@ -1,31 +1,18 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const RegisterSection = styled.section`
-  @media screen and (min-width: 768px) {
-    padding-bottom: 40px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    display: flex;
-    gap: 38px;
-    padding-bottom: 0px;
-  }
+export const Section = styled.section`
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Preview = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  margin: 63px auto 50px auto;
-  padding-right: 50px;
+  display: block;
+  margin: 180px 0 0 0;
   @media screen and (min-width: 1280px) {
-    flex-direction: column;
-    gap: 28px;
-    padding: 0 0 52px 90px;
-    margin: 158px auto 50px auto;
-    justify-content: flex-start;
+    margin: 140px 0 0 0;
   }
 `;
 
@@ -44,152 +31,92 @@ export const IconSvg = styled.img`
         transform: scale(2);
         -webkit-transform: scale(1);
       } */
-    }
-  
+  }
+
   @media screen and (min-width: 1280px) {
     width: 435px;
     height: 420px;
   }
 `;
 
-export const Title = styled.h2`
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: calc(45 / 30);
-  color: #4a56e2;
-`;
-
-export const TitleH1 = styled.h1`
-  font-size: 25px;
-  line-height: 1.5;
-  /* font-family: Verdana, sans-serif; */
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
-  position: relative;
-  background: #ffffff;
-  /* background: transparent; */
-  overflow: hidden;
-  /* text-transform: uppercase; */
-  text-align: center;
-
-  &:before {
-    content: '';
-    position: absolute;
-    filter: blur(10px);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: screen;
-    /* color: #337ab7;
-      color:  #337ab7 1em;
-        #fff 1em,
-        #bfe2ff 50% */
-    background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 1em,
-        #bfe2ff 1em,
-        #4a56e2 50%
-      ),
-      repeating-linear-gradient(
-        45deg,
-        #4a56e2,
-        #4a56e2 1em,
-        #fff 1em,
-        #bfe2ff 50%
-      );
-    background-size: 3em 3em, 2em 2em;
-    animation-name: ani;
-    animation-duration: 4s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-  @keyframes ani {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 100% 0;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 30px;
-  }
-`;
-
-export const Backdrop = styled.div`
-  @media screen and (min-width: 1280px) {
-    min-height: 100vh;
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(25px);
-    padding: 52px 90px 52px 107px;
-    margin-right: auto;
-  }
-`;
-
 export const Content = styled.div`
   background-color: #fff;
-  padding: 32px 20px 107px;
   height: 100vh;
+  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 0 60px 0;
-    border-radius: 20px;
-    height: 616px;
-    width: 533px;
-    margin-left: auto;
-    margin-right: auto;
+    min-width: 350px;
+    margin-top: 160px;
+    padding-left: 40px;
   }
-  @media screen and (min-width: 1280px) {
-    padding: 40px 0;
+`;
+
+export const Title = styled.h1`
+  font-family: Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fc842d;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
   }
 `;
 
 export const FormBox = styled.form`
+  margin-top: 60px;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
   justify-content: center;
   align-items: center;
-`;
-export const LogoBox = styled.div`
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 17px;
+
   @media screen and (min-width: 768px) {
-    gap: 20px;
+    align-items: flex-start;
   }
 `;
 
-// export const Link = styled.h2`
-//   /* font-weight: 700;
-//   font-size: 24px;
-//   line-height: calc(30 / 24);
-//   color: #000; */
-//   @media screen and (min-width: 768px) {
-//     font-size: 30px;
-//     line-height: calc(45 / 30);
-//   }
-// `;
-
 export const Label = styled.label`
   position: relative;
-  height: 32px;
+  height: 36px;
+  width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 240px;
+  }
 `;
 
-export const Icon = styled.img`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 12px;
+export const Input = styled.input`
+  width: 280px;
+  height: 36px;
   padding-bottom: 10px;
-  fill: #bdbdbd;
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  color: #000;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  &::placeholder {
+    font: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    color: #9b9faa;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #000;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 240px;
+  }
 `;
 
 export const Eye = styled.i`
@@ -200,91 +127,75 @@ export const Eye = styled.i`
   color: #bdbdbd;
 `;
 
-export const Input = styled.input`
-  height: 32px;
-  padding-left: 54px;
-  padding-bottom: 8px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: calc(27 / 18);
-  color: #000;
-  border: none;
-  border-bottom: 1px solid #bdbdbd;
-  &::placeholder {
-    font: inherit;
-    font-size: 18px;
-    color: #5e5e5e;
-  }
-  &:focus {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #4a56e2;
-    color: #4a56e2;
-  }
-`;
-
 export const ButtonsList = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 32px;
+    height: 108px;
+  }
 `;
 
 export const Button = styled.button`
-  height: 50px;
-  width: 280px;
-  border-radius: 20px;
-  border: 1px solid #4a56e2;
-  color: #4a56e2;
+  height: 44px;
+  width: 182px;
+  border-radius: 30px;
+  border: 2px solid #fc842d;
+  color: #fc842d;
   background-color: #fff;
-  font-size: 18px;
-  line-height: calc(27 / 18);
-  font-weight: 400;
-  text-transform: uppercase;
+  box-shadow: 0px 4px 10px #fff;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  font-weight: 700;
+  display: block;
+
   &:hover {
-    border: 1px solid #4a56e2;
-    background-color: #4a56e2;
+    border: 2px solid #fc842d;
+    background-color: #fc842d;
     color: #fff;
-  }
-  @media screen and (min-width: 768px) {
-    width: 300px;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
 `;
 
 export const ButtonActive = styled.button`
-  height: 50px;
-  width: 280px;
-  border-radius: 20px;
-  background-color: #24cca7;
-  border: 1px solid #24cca7;
+  height: 44px;
+  width: 182px;
+  border-radius: 30px;
+  border: 2px solid #fc842d;
   color: #fff;
-  font-size: 18px;
-  line-height: calc(27 / 18);
-  font-weight: 400;
-  text-transform: uppercase;
+  background-color: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  font-weight: 700;
+  display: block;
+
   &:hover {
-    border: 1px solid #4a56e2;
-    background-color: #4a56e2;
-    color: #fff;
-  }
-  @media screen and (min-width: 768px) {
-    width: 300px;
+    border: 2px solid #fc842d;
+    background-color: #fff;
+    color: #fc842d;
+    box-shadow: 0px 4px 10px #fff;
   }
 `;
 
 export const StyledNavLink = styled(NavLink)`
   display: flex;
-  height: 50px;
+  height: 40px;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #4a56e2;
+  color: #fc842d;
   &:hover {
     color: #fff;
   }
 `;
 
 export const Error = styled.div`
-  /* text-transform: capitalize; */
   color: red;
   position: absolute;
   z-index: 1;
@@ -292,7 +203,7 @@ export const Error = styled.div`
 
 export const Ribbon = styled.div`
   position: relative;
-  border-bottom: 4px solid #e5f1ef;
+  border-bottom: 4px solid rgba(252, 132, 45, 0.3);
   width: 100%;
   margin-top: 4px;
   border-radius: 10px;

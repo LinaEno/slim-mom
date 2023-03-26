@@ -9,31 +9,26 @@ import { useState } from 'react';
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 
 import {
-  Preview,
-  LoginSection,
-  Backdrop,
+  Section,
   Content,
   FormBox,
-  LogoBox,
   Label,
   Eye,
   Input,
   ButtonsList,
-  ButtonActive,
   Button,
+  ButtonActive,
   StyledNavLink,
   Error,
   IconSvg,
-} from './LoginForm.styled';
-import logo from '../../images/logo.png';
+  Title,
+} from '../RegistrationForm/Registration.styled';
 import svgIcon from '../../images/bowl_fruit.png';
 
-// import emailIcon from '../../images/svg/email.svg';
-// import passIcon from '../../images/svg/password.svg';
-import { Desktop, Tablet, Mobile, Default } from '../Media/Media';
+import { Desktop, Tablet, Default } from '../Media/Media';
 
 import { useTranslation } from 'react-i18next';
-import { TitleH1 } from 'components/RegistrationForm/Registration.styled';
+import { Preview } from './LoginForm.styled';
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -72,51 +67,9 @@ const LoginForm = () => {
   };
 
   return (
-    <LoginSection>
-      <Default>
-        <Preview>
-          <Tablet>
-            <IconSvg
-              src={svgIcon}
-              alt="img"
-              style={{ width: '260px', height: '250px' }}
-            />
-          </Tablet>
-          <Desktop>
-            <IconSvg
-              src={svgIcon}
-              alt="img"
-              style={{ width: '435px', height: '420px' }}
-            />
-          </Desktop>
-        </Preview>
-      </Default>
-      <Backdrop>
+    <Section>
         <Content>
-          <LogoBox>
-            <Mobile>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '46px', height: '44px' }}
-              />
-            </Mobile>
-            <Tablet>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '46px', height: '44px' }}
-              />
-            </Tablet>
-            <Desktop>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '70px', height: '66px' }}
-              />
-            </Desktop>
-            <TitleH1>Log In</TitleH1>
-          </LogoBox>
+            <Title>Log In</Title>
           <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <Label>
               <Input
@@ -129,7 +82,6 @@ const LoginForm = () => {
               <Error style={{ top: '14%' }}>{errors.email.message}</Error>
             )}
             <Label>
-              {/* <Icon src={passIcon} alt="email" /> */}
               <Input
                 type={toggle ? 'text' : 'password'}
                 {...register('password')}
@@ -170,8 +122,25 @@ const LoginForm = () => {
             </ButtonsList>
           </FormBox>
         </Content>
-      </Backdrop>
-    </LoginSection>
+        <Default>
+        <Preview>
+          <Tablet>
+            <IconSvg
+              src={svgIcon}
+              alt="img"
+              style={{ width: '260px', height: '250px' }}
+            />
+          </Tablet>
+          <Desktop>
+            <IconSvg
+              src={svgIcon}
+              alt="img"
+              style={{ width: '435px', height: '420px' }}
+            />
+          </Desktop>
+        </Preview>
+      </Default>
+    </Section>
   );
 };
 
