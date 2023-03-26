@@ -4,6 +4,7 @@ import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsLis
 import { useDispatch } from 'react-redux';
 import { openModalRecommendation } from 'redux/global/slice';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
+import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const HomePage = () => {
       <DiaryDateCalendar />
       <DiaryAddProductForm />
       <DiaryProductsList />
+      <CaloriesWrap />
     </>
   );
 };

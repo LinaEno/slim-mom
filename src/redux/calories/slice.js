@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dailyCalories, dailyCaloriesId } from './operations';
+import {
+  dailyCalories,
+  dailyCaloriesId,
+  getUserCaloriesInfo,
+} from './operations';
 
 const initialState = {
   user: null,
@@ -21,13 +25,16 @@ const caloriesSlice = createSlice({
 
   extraReducers: builder =>
     builder
-      .addCase(dailyCalories.fulfilled, (state, { payload }) => {
-        state.user = payload;
-      })
+      // .addCase(dailyCalories.fulfilled, (state, { payload }) => {
+      //   state.user = payload;
+      // })
 
       .addCase(dailyCaloriesId.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.userId = payload.id;
+      })
+      .addCase(getUserCaloriesInfo.fulfilled, (state, { payload }) => {
+        state.user = payload;
       }),
 });
 
