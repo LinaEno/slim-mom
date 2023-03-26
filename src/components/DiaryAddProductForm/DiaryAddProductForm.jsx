@@ -7,7 +7,6 @@ import { addProduct, getInfo } from 'redux/diary/operations';
 // import ButtonIcon from '../../images/buttonDiary.png';
 import { selectDate, selectProducts } from 'redux/diary/selectors';
 import moment from 'moment/moment';
-import { fetchCurrentUser } from 'redux/auth/authOperation';
 
 export const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
@@ -16,12 +15,9 @@ export const DiaryAddProductForm = () => {
   const products = useSelector(selectProducts);
   const date = useSelector(selectDate);
 
-  console.log(date);
-  // console.log(date);
-
-  // useEffect(() => {
-  //   dispatch(productSearch(date));
-  // }, [date, dispatch]);
+  useEffect(() => {
+    dispatch(getInfo(date));
+  }, [dispatch, date]);
 
   const handleChangeProduct = e => {
     const { value } = e.target;
@@ -33,11 +29,6 @@ export const DiaryAddProductForm = () => {
     const { value } = e.target;
     setWeight(value);
   };
-
-  // useEffect(() => {
-  //   // dispatch(getInfo({ date: moment(date).format('yyyy-MM-DD') }));
-  //   dispatch(getInfo(date));
-  // }, [dispatch, date]);
 
   const reset = () => {
     setTitle('');
@@ -53,15 +44,7 @@ export const DiaryAddProductForm = () => {
       weight,
     };
     dispatch(addProduct(newProduct));
-    // dispatch(getInfo(newProduct));
-    dispatch(getInfo({ date }));
 
-    // dispatch(addProduct(newProduct))
-    //   .unwrap()
-    //   .then(() => {
-    //     dispatch(fetchCurrentUser());
-    //     dispatch(getInfo(newProduct));
-    //   });
     reset();
     e.target.reset();
   }

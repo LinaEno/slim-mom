@@ -76,15 +76,19 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+export async function getDayInfo(date) {
+  const { data } = await backend.post('/day/info', { date });
+  return data;
+}
+
 export const getInfo = createAsyncThunk(
   'products/getDayInfo',
   async (dateInfo, { rejectWithValue }) => {
     try {
-      const { data } = await backend.post('/day', dateInfo);
-      console.log(dateInfo);
-      console.log(data);
+      const result = await getDayInfo(dateInfo);
+      console.log(result);
 
-      return data;
+      return result;
     } catch (e) {
       return rejectWithValue(
         e.message,
