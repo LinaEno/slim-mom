@@ -1,13 +1,10 @@
-// import { useMemo } from 'react';
-// import { nanoid } from '@reduxjs/toolkit';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { dailyCaloriesId } from 'redux/calories/operations';
-import { getUserName, selectUserId } from 'redux/auth/authSelectors';
+import { selectUserId } from 'redux/auth/authSelectors';
 import { openModalRecommendation } from 'redux/global/slice';
-import { getUserInfo } from 'redux/auth/authOperation';
 
 const CalculatorCalorieForm = () => {
   const {
@@ -20,8 +17,6 @@ const CalculatorCalorieForm = () => {
   });
   const dispatch = useDispatch();
   const userId = useSelector(selectUserId);
-
-  dispatch(getUserInfo());
 
   const onSubmit = data => {
     const d = dispatch(dailyCaloriesId({ ...data, userId }));
