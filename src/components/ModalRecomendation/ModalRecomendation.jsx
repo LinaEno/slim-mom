@@ -36,7 +36,7 @@ const ModalRecommendation = () => {
           {notAllowedProductsFiltered?.length > 0 &&
             notAllowedProductsFiltered.map(prod => {
               return (
-                <ItemNotAllowed>
+                <ItemNotAllowed key={prod}>
                   <TextNotAllowed>{prod}</TextNotAllowed>
                 </ItemNotAllowed>
               );

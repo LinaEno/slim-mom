@@ -1,5 +1,3 @@
-import { DiaryProductsListItem } from 'components/DiaryProductsListItem/DiaryProductsListItem';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct, getInfo } from 'redux/diary/operations';
 import {

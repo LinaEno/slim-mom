@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/authSelectors';
 // import { useMediaQuery } from 'react-responsive';
-// import { getUserCaloriesInfo } from 'redux/calories/operations';
-import { selectUserInfo } from 'redux/calories/selectors';
+
 import { getInfo } from 'redux/diary/operations';
 import { selectDate, selectSummary } from 'redux/diary/selectors';
 import {
@@ -68,7 +67,7 @@ export const CaloriesWrap = () => {
           <CaloriesTitle>Food not recommended</CaloriesTitle>
           {notAllowedProductsFiltered?.length > 0 ? (
             notAllowedProductsFiltered.map(prod => {
-              return <CaloriesText>{prod}</CaloriesText>;
+              return <CaloriesText key={prod}>{prod}</CaloriesText>;
             })
           ) : (
             <CaloriesText>Your diet will be displayed here</CaloriesText>

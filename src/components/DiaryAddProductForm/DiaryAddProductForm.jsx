@@ -6,7 +6,6 @@ import { addProduct, getInfo } from 'redux/diary/operations';
 
 // import ButtonIcon from '../../images/buttonDiary.png';
 import { selectDate, selectProducts } from 'redux/diary/selectors';
-import moment from 'moment/moment';
 
 export const DiaryAddProductForm = () => {
   const dispatch = useDispatch();

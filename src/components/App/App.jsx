@@ -4,13 +4,15 @@ import { Route, Routes } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { selectRefreshed } from 'redux/auth/authSelectors';
-import { Loader } from './Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import { selectError } from 'redux/calories/selectors';
 import { fetchCurrentUser } from 'redux/auth/authOperation';
 import { AuthRoute, NotAuthRoute } from 'routes';
-import Layout from './Layout/Layout';
+import Layout from '../Layout/Layout';
 
-// const DashboardPage = lazy(() => import('pages/DashboardPage/DashboardPage'));
+const CalculatorPage = lazy(() =>
+  import('pages/CalculatorPage/CalculatorPage')
+);
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 // const CurrencyPage = lazy(() => import('pages/Currency/Currency'));
@@ -59,14 +61,14 @@ export const App = () => {
                 </AuthRoute>
               }
             />
-            {/* <Route
-                path="/diagram"
-                element={
-                  <AuthRoute redirectPath="/login">
-                    <SummaryPage />
-                  </AuthRoute>
-                }
-              /> */}
+            <Route
+              path="/calculator"
+              element={
+                <AuthRoute redirectPath="/login">
+                  <CalculatorPage />
+                </AuthRoute>
+              }
+            />
             {/* <Route
                 path="/currency"
                 element={

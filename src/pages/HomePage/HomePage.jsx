@@ -1,26 +1,21 @@
 import CalculatorCalorieForm from 'components/CalculatorCalorieForm';
-import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
-import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
 import { useDispatch } from 'react-redux';
-import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
-
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
-
 import { getUserInfo } from 'redux/auth/authOperation';
+import { Container } from 'components/App/App.styled';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   dispatch(getUserInfo());
 
   return (
-    <>
-      <p>Розрахувати денну норму калорій</p>
-      <CalculatorCalorieForm />
-      <DiaryDateCalendar />
-      <DiaryAddProductForm />
-      <DiaryProductsList />
+    <Container>
+      <div>
+        <h1>Розрахувати денну норму калорій</h1>
+        <CalculatorCalorieForm />
+      </div>
       <CaloriesWrap />
-    </>
+    </Container>
   );
 };
 
