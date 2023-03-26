@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/authSelectors';
-import { selectUserInfo } from 'redux/calories/selectors';
 import { closeModal } from 'redux/global/slice';
 import {
   BoxKcal,
@@ -16,7 +15,6 @@ import {
 } from './ModalRecommendation.styled';
 
 const ModalRecommendation = () => {
-  // const recommendation = useSelector(getUserData);
   const recommendation = useSelector(getUserData);
   const { dailyRate, notAllowedProducts } = recommendation;
   const dispatch = useDispatch();

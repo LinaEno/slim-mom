@@ -15,9 +15,7 @@ export const productSearch = createAsyncThunk(
   'products/productSearch',
   async (search, { rejectWithValue }) => {
     try {
-      // const result = await backend.get('/product', search);
       const result = await searchProduct(search);
-      console.log(result);
       return result;
     } catch (e) {
       return rejectWithValue(
@@ -51,7 +49,6 @@ export const addProduct = createAsyncThunk(
         daySummary: daySummary || newSummary,
         eatenProduct: eatenProduct,
       };
-      console.log(result);
       return result;
     } catch (e) {
       return rejectWithValue(
@@ -86,8 +83,6 @@ export const getInfo = createAsyncThunk(
   async (dateInfo, { rejectWithValue }) => {
     try {
       const result = await getDayInfo(dateInfo);
-      console.log(result);
-
       return result;
     } catch (e) {
       return rejectWithValue(

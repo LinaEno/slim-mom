@@ -20,15 +20,12 @@ export const CaloriesWrap = () => {
   const userSummary = useSelector(selectSummary);
   const date = useSelector(selectDate);
   const recommendation = useSelector(getUserData);
-  const { notAllowedProducts } = recommendation;
+  // const { notAllowedProducts } = recommendation;
 
-  console.log(userSummary);
-  console.log(notAllowedProducts);
-
-  const notAllowedProductsFiltered = notAllowedProducts.slice(0, 4);
-
-  // const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
-  //   userSummary;
+  const notAllowedProductsFiltered = recommendation?.notAllowedProducts.slice(
+    0,
+    4
+  );
 
   useEffect(() => {
     dispatch(getInfo(date));

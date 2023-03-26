@@ -15,15 +15,11 @@ export const DiaryProductsList = () => {
   const date = useSelector(selectDate);
   const eatenProducts = useSelector(selectEatenProducts);
 
-  console.log(eatenProducts);
-
   const deleteProductId = e => {
     const dayIdObj = {
       dayId: day,
       eatenProductId: e.target.id,
     };
-
-    console.log(dayIdObj);
 
     dispatch(deleteProduct(dayIdObj))
       .unwrap()

@@ -37,7 +37,6 @@ export const dailyCaloriesId = createAsyncThunk(
       // userInfo.desiredWeight = Number(userInfo.desiredWeight);
       // userInfo.age = Number(userInfo.age);
       const response = await postInfo(userInfo);
-      console.log(response);
       return response;
     } catch (e) {
       return rejectWithValue(
