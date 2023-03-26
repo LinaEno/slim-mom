@@ -1,5 +1,4 @@
-
-import CalculatorCalorieForm from "components/CalculatorCalorieForm";
+import CalculatorCalorieForm from 'components/CalculatorCalorieForm';
 import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
 import { useDispatch } from 'react-redux';
@@ -9,21 +8,13 @@ import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalenda
 const HomePage = () => {
   const dispatch = useDispatch();
 
-  const openModal = () => {
-    dispatch(openModalRecommendation());
-  };
-
   return (
     <>
-
       <p>Розрахувати денну норму калорій</p>
-       <CalculatorCalorieForm/>
-      <button type="button" onClick={openModal}>Почніть худнути</button>
+      <CalculatorCalorieForm />
       <DiaryDateCalendar />
       <DiaryAddProductForm />
       <DiaryProductsList />
->
-
     </>
   );
 };

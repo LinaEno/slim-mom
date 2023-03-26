@@ -1,109 +1,97 @@
-
-import { useMemo } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
-
-
+// import { useMemo } from 'react';
+// import { nanoid } from '@reduxjs/toolkit';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { dailyCaloriesId } from 'redux/calories/operations';
+import { getUserName, selectUserId } from 'redux/auth/authSelectors';
+import { openModalRecommendation } from 'redux/global/slice';
+import { getUserInfo } from 'redux/auth/authOperation';
 
 const CalculatorCalorieForm = () => {
-  const id = useMemo(() => nanoid(), []);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    //  resolver: yupResolver(schema),
+  });
+  const dispatch = useDispatch();
+  const userId = useSelector(selectUserId);
+
+  dispatch(getUserInfo());
+
+  const onSubmit = data => {
+    const d = dispatch(dailyCaloriesId({ ...data, userId }));
+    console.log(d);
+    reset();
+  };
+
+  const openModal = () => {
+    dispatch(openModalRecommendation());
+  };
 
   return (
-    <form >
-      <div >
-        <div >
-          <div >
-            <label >
-              Зріст *
-            </label>
-            <input />
-          </div>
-          <div >
-            <label >
-              Вік *
-            </label>
-            <input
-              id="age"
-              type="number"
-              min="18"
-              max="99"
-              pattern="[0-9]{2}"
-              title="Age must contain minimum two digits and cannot contain spaces, dashes and letters."
-              required
-            />
-          </div>
-          <div >
-            <label >
-            Теперішня вага*
-            </label>
-            <input
-              id="current"
-              type="number"
-              min="30"
-              max="333"
-              pattern="[0-9]{3}"
-              title="Weight must contain minimum two digits and cannot contain spaces, dashes and letters."
-              required
-            />
-          </div>
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+      <label>
+        Зріст *
+        <input type="number" {...register('height')} placeholder="Зріст" />
+      </label>
 
-        <div>
-          <div >
-            
-            <label >
-              Бажана вага *
-            </label>
-            <input />
-          </div>
-          <p> Група крові *</p>
-          <div >
-            <input
-              id={id}
-              type="radio"
-              name="bloodType"
-              value="1"
-            />
-            <label>
-              1
-            </label>
-            <input
-             
-              id={id}
-              type="radio"
-              name="bloodType"
-              value="2"
-            />
-            <label  htmlFor={id}>
-              2
-            </label>
-            <input
-             
-              id={id}
-              type="radio"
-              name="bloodType"
-              value="3"
-            />
-            <label htmlFor={id}>
-              3
-            </label>
-            <input
-             
-              id={id}
-              type="radio"
-              name="bloodType"
-              value="4"
-            />
-            <label htmlFor={id}>
-              4
-            </label>
-          </div>
-        </div>
+      <label>
+        Вік *
+        <input type="number" {...register('age')} placeholder="Вік" />
+      </label>
+
+      <label>
+        Теперішня вага*
+        <input
+          type="number"
+          {...register('weight')}
+          placeholder="Теперішня вага"
+        />
+      </label>
+
+      <label>
+        Бажана вага *
+        <input
+          type="number"
+          {...register('desiredWeight')}
+          placeholder="Бажана вага"
+        />
+      </label>
+
+      <p> Група крові *</p>
+
+      <div>
+        <input
+          {...register('bloodType', { required: true })}
+          type="radio"
+          value="1"
+        />
+        <input
+          {...register('bloodType', { required: true })}
+          type="radio"
+          value="2"
+        />
+        <input
+          {...register('bloodType', { required: true })}
+          type="radio"
+          value="3"
+        />
+        <input
+          {...register('bloodType', { required: true })}
+          type="radio"
+          value="4"
+        />
       </div>
+      <button type="submit" onClick={openModal}>
+        Почніть худнути
+      </button>
     </form>
   );
-}
+};
 
 export default CalculatorCalorieForm;
-
-
- 

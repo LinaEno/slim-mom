@@ -78,14 +78,11 @@ export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
     try {
       const { sid, refreshToken } = state.auth;
       if (!sid) return thunkAPI.rejectWithValue(toast.error(null));
       const result = await refreshUser(sid, refreshToken);
-
       token.set(result.newAccessToken);
-      console.log(result);
       return result;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message, toast.error(null));
@@ -98,6 +95,7 @@ export const getUserInfo = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await backend.get('/user');
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
