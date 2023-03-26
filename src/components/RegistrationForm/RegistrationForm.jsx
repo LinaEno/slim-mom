@@ -5,18 +5,16 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registration } from 'redux/auth/authOperation';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 import {
   Preview,
-  RegisterSection,
-  Backdrop,
+  Section,
   Content,
   FormBox,
-  LogoBox,
   Label,
   Eye,
   Input,
@@ -27,14 +25,13 @@ import {
   Error,
   Ribbon,
   IconSvg,
-  TitleH1,
+  Title,
 } from './Registration.styled';
 
-import { Desktop, Tablet, Mobile, Default } from '../Media/Media';
+import { Desktop, Tablet, Default } from '../Media/Media';
 import css from './Ribbon.module.css';
 
 import svgIcon from '../../images/bowl_vegetable2.png';
-import logo from '../../images/logo.png';
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
@@ -79,30 +76,118 @@ const RegistrationForm = () => {
   };
 
   const [ribbon, setRibbon] = useState('');
-  const [pass, setPass] = useState('pass');
-
-  useEffect(() => {
-    if (pass.length > 5) {
-      setRibbon('putPass');
-    } else if (pass.length <= 5) {
-      setRibbon('shortPass');
-    }
-  }, [pass]);
 
   const handleChange = event => {
     const { value } = event.target;
-    setPass(value);
+    let score = 0;
+
+    if (value.length > 5 && value.match(/[0-9]/g)) {
+      score += 1;
+    }
+
+    if (value.length > 5 && value.match(/[a-z]/g)) {
+      score += 1;
+    }
+
+    if (value.length > 5 && value.match(/[A-Z]/g)) {
+      score += 1;
+    }
+
+    if (value.length > 5 && value.match(/[!@$%&*?_=/|#-().^+]/g)) {
+      score += 1;
+    }
+
+    switch (score) {
+      case 0:
+        setRibbon('shortPass');
+        break;
+
+      case 1:
+        setRibbon('easyPass');
+        break;
+
+      case 2:
+        setRibbon('mediumPass');
+        break;
+
+      case 3:
+        setRibbon('longPass');
+        break;
+
+      case 4:
+        setRibbon('strongPass');
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
-    <RegisterSection>
+    <Section>
+      <Content>
+        <Title>Register</Title>
+        <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          <Label>
+            <Input type="text" {...register('username')} placeholder="Name *" />
+          </Label>
+          {errors?.username && (
+            <Error style={{ top: '11%' }}>{errors.username.message}</Error>
+          )}
+          <Label>
+            <Input type="email" {...register('email')} placeholder="E-mail *" />
+          </Label>
+          {errors?.email && (
+            <Error style={{ top: '33%' }}>{errors.email.message}</Error>
+          )}
+          <Label>
+            <Input
+              {...register('password')}
+              placeholder="Password *"
+              type={toggle ? 'text' : 'password'}
+              onChange={handleChange}
+            />
+            <Ribbon>
+              <div className={css[ribbon]} />
+            </Ribbon>
+            {!toggle ? (
+              <Eye
+                id="passlock"
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+              >
+                <BsEyeSlashFill />
+              </Eye>
+            ) : (
+              <Eye
+                id="showpass"
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+              >
+                <BsEyeFill />
+              </Eye>
+            )}
+          </Label>
+          {errors?.password && (
+            <Error style={{ top: '57%' }}>{errors.password.message}</Error>
+          )}
+          <ButtonsList>
+            <ButtonActive type="submit">Register</ButtonActive>
+            <Button type="submit">
+              <StyledNavLink to={'/login'}>Log in</StyledNavLink>
+            </Button>
+          </ButtonsList>
+        </FormBox>
+      </Content>
       <Default>
         <Preview>
           <Tablet>
             <IconSvg
               src={svgIcon}
               alt="vegetable"
-              style={{ width: '260px', height: '250px' }}
+              style={{ width: '310px', height: '300px' }}
             />
           </Tablet>
           <Desktop>
@@ -114,100 +199,7 @@ const RegistrationForm = () => {
           </Desktop>
         </Preview>
       </Default>
-      <Backdrop>
-        <Content>
-          <LogoBox>
-            <Mobile>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '46px', height: '44px' }}
-              />
-            </Mobile>
-            <Tablet>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '46px', height: '44px' }}
-              />
-            </Tablet>
-            <Desktop>
-              <img
-                src={logo}
-                alt="img"
-                style={{ width: '70px', height: '66px' }}
-              />
-            </Desktop>
-            <TitleH1>Register</TitleH1>
-          </LogoBox>
-
-          <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-            <Label>
-              <Input
-                type="text"
-                {...register('username')}
-                placeholder={t('register.name')}
-              />
-            </Label>
-            {errors?.username && (
-              <Error style={{ top: '62%' }}>{errors.username.message}</Error>
-            )}
-            <Label>
-              <Input
-                type="email"
-                {...register('email')}
-                placeholder={t('register.email')}
-              />
-            </Label>
-            {errors?.email && (
-              <Error style={{ top: '9%' }}>{errors.email.message}</Error>
-            )}
-            <Label>
-              <Input
-                {...register('password')}
-                placeholder={t('register.password')}
-                type={toggle ? 'text' : 'password'}
-                onChange={handleChange}
-              />
-              {!toggle ? (
-                <Eye
-                  id="passlock"
-                  onClick={() => {
-                    setToggle(!toggle);
-                  }}
-                >
-                  <BsEyeSlashFill />
-                </Eye>
-              ) : (
-                <Eye
-                  id="showpass"
-                  onClick={() => {
-                    setToggle(!toggle);
-                  }}
-                >
-                  <BsEyeFill />
-                </Eye>
-              )}
-            </Label>
-            {errors?.password && (
-              <Error style={{ top: '27%' }}>{errors.password.message}</Error>
-            )}
-            <Ribbon>
-              <div className={css[ribbon]} />
-            </Ribbon>
-
-            <ButtonsList>
-              <ButtonActive type="submit">{t('register.btnReg')}</ButtonActive>
-              <Button type="submit">
-                <StyledNavLink to={'/login'}>
-                  {t('register.btnLogIn')}
-                </StyledNavLink>
-              </Button>
-            </ButtonsList>
-          </FormBox>
-        </Content>
-      </Backdrop>
-    </RegisterSection>
+    </Section>
   );
 };
 
