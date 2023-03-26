@@ -6,8 +6,8 @@ import { addProduct, getInfo } from 'redux/diary/operations';
 
 // import ButtonIcon from '../../images/buttonDiary.png';
 import { selectDate, selectProducts } from 'redux/diary/selectors';
-import { DebounceInput } from 'react-debounce-input';
 import moment from 'moment/moment';
+import { fetchCurrentUser } from 'redux/auth/authOperation';
 
 export const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
@@ -16,27 +16,28 @@ export const DiaryAddProductForm = () => {
   const products = useSelector(selectProducts);
   const date = useSelector(selectDate);
 
-  console.log(products);
   console.log(date);
+  // console.log(date);
 
-  useEffect(() => {
-    dispatch(productSearch(date));
-  });
+  // useEffect(() => {
+  //   dispatch(productSearch(date));
+  // }, [date, dispatch]);
 
   const handleChangeProduct = e => {
     const { value } = e.target;
+    if (value === '') return;
     setTitle(value);
     dispatch(productSearch(title));
   };
   const handleChangeWeight = e => {
     const { value } = e.target;
     setWeight(value);
-    dispatch(productSearch(weight));
   };
 
-  useEffect(() => {
-    dispatch(getInfo({ date: moment(date).format('yyyy-MM-DD') }));
-  }, [dispatch, date]);
+  // useEffect(() => {
+  //   // dispatch(getInfo({ date: moment(date).format('yyyy-MM-DD') }));
+  //   dispatch(getInfo(date));
+  // }, [dispatch, date]);
 
   const reset = () => {
     setTitle('');
@@ -52,11 +53,15 @@ export const DiaryAddProductForm = () => {
       weight,
     };
     dispatch(addProduct(newProduct));
-    // .unwrap()
-    // .then(() => {
-    //   dispatch(fetchCurrentUser());
-    //   dispatch(getInfo({ date }));
-    // });
+    // dispatch(getInfo(newProduct));
+    dispatch(getInfo({ date }));
+
+    // dispatch(addProduct(newProduct))
+    //   .unwrap()
+    //   .then(() => {
+    //     dispatch(fetchCurrentUser());
+    //     dispatch(getInfo(newProduct));
+    //   });
     reset();
     e.target.reset();
   }
@@ -66,14 +71,6 @@ export const DiaryAddProductForm = () => {
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <div>
-            {/* <input
-              list="listProducts"
-              type="text"
-              name="product"
-              
-              value={product}
-              onChange={handleChangeProduct}
-            /> */}
             <input
               onChange={handleChangeProduct}
               type="text"
@@ -98,7 +95,6 @@ export const DiaryAddProductForm = () => {
 
             <input
               onChange={handleChangeWeight}
-              debounceTimeout={1000}
               type="number"
               name="weight"
               value={weight}

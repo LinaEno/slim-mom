@@ -19,7 +19,7 @@ export const DiaryProductsList = () => {
   const date = useSelector(selectDate);
   const eatenProducts = useSelector(selectEatenProducts);
   //   console.log(idProduct);
-  //   console.log(eatenProducts);
+  console.log(eatenProducts);
 
   const deleteProductId = e => {
     console.log(e);
@@ -57,6 +57,29 @@ export const DiaryProductsList = () => {
   //     );
   //   const deletedProduct = JSON.parse(localStorage.getItem('dayIdObj'));
   //   console.log(deletedProduct);
+  // return (
+  //   <div>
+  //     <ul>
+  //       {eatenProducts && (
+  //         <li key={eatenProducts.id}>
+  //           <span>{eatenProducts.title} </span>
+  //           <span>{eatenProducts.weight} г</span>
+  //           <span>{Math.round(eatenProducts.kcal)} ккал </span>
+  //           <button
+  //             id={eatenProducts.id}
+  //             type="button"
+  //             onClick={deleteProductId}
+  //           >
+  //             <GrClose
+  //               style={{ background: 'white', color: '#9b9faa' }}
+  //               id={eatenProducts.id}
+  //             />
+  //           </button>
+  //         </li>
+  //       )}
+  //     </ul>
+  //   </div>
+  // );
   return (
     <div>
       <ul>
