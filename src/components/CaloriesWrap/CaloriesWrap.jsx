@@ -2,9 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
-import { getUserCaloriesInfo } from 'redux/calories/operations';
+import { getUserData } from 'redux/auth/authSelectors';
+// import { useMediaQuery } from 'react-responsive';
+// import { getUserCaloriesInfo } from 'redux/calories/operations';
 import { selectUserInfo } from 'redux/calories/selectors';
+import { getInfo } from 'redux/diary/operations';
+import { selectDate, selectSummary } from 'redux/diary/selectors';
 import {
   CaloriesEl,
   CaloriesText,
@@ -14,10 +17,23 @@ import {
 
 export const CaloriesWrap = () => {
   const dispatch = useDispatch();
-  const userInfo = useSelector(selectUserInfo);
+  const userSummary = useSelector(selectSummary);
+  const date = useSelector(selectDate);
+  const recommendation = useSelector(getUserData);
+  const { notAllowedProducts } = recommendation;
+
+  console.log(userSummary);
+  console.log(notAllowedProducts);
+
+  const notAllowedProductsFiltered = notAllowedProducts.slice(0, 4);
+
+  // const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
+  //   userSummary;
+
   useEffect(() => {
-    dispatch(getUserCaloriesInfo());
-  }, [dispatch, userInfo]);
+    dispatch(getInfo(date));
+  }, [date, dispatch]);
+
   return (
     <section>
       <h2 style={{ display: 'none' }}>Summary</h2>
@@ -26,24 +42,40 @@ export const CaloriesWrap = () => {
           <CaloriesTitle>Summary for today</CaloriesTitle>
           <CaloriesEl>
             <CaloriesText>Left</CaloriesText>
-            <CaloriesText>00</CaloriesText>
+            <CaloriesText>
+              {userSummary?.kcalLeft ? userSummary.kcalLeft : '000'}
+            </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Consumed</CaloriesText>
-            <CaloriesText></CaloriesText>00
+            <CaloriesText>
+              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '000'}
+            </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Daily rate</CaloriesText>
-            <CaloriesText>00</CaloriesText>
+            <CaloriesText>
+              {userSummary?.dailyRate ? userSummary.dailyRate : '000'}
+            </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>n% of normal</CaloriesText>
-            <CaloriesText>00</CaloriesText>
+            <CaloriesText>
+              {userSummary?.percentsOfDailyRate
+                ? userSummary.percentsOfDailyRate
+                : '00'}
+            </CaloriesText>
           </CaloriesEl>
         </div>
         <div>
           <CaloriesTitle>Food not recommended</CaloriesTitle>
-          <p>Your diet will be displayed here</p>
+          {notAllowedProductsFiltered?.length > 0 ? (
+            notAllowedProductsFiltered.map(prod => {
+              return <CaloriesText>{prod}</CaloriesText>;
+            })
+          ) : (
+            <CaloriesText>Your diet will be displayed here</CaloriesText>
+          )}
         </div>
       </Wrapper>
     </section>

@@ -3,22 +3,6 @@ import { toast } from 'react-toastify';
 import { backend } from 'redux/auth/authOperation';
 import { omit } from 'lodash';
 
-export const getUserCaloriesInfo = createAsyncThunk(
-  'calories/dailyCalories',
-  async ({ rejectWithValue }) => {
-    try {
-      const response = await backend.get('/day/info');
-      // console.log(response);
-      return response;
-    } catch (e) {
-      return rejectWithValue(
-        e.message,
-        toast.error('Oops. Something went wrong 😭')
-      );
-    }
-  }
-);
-
 export const dailyCalories = createAsyncThunk(
   'calories/dailyCalories',
   async (userInfo, { rejectWithValue }) => {

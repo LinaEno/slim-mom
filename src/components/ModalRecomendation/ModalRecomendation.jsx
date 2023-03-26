@@ -17,7 +17,7 @@ import {
 
 const ModalRecommendation = () => {
   // const recommendation = useSelector(getUserData);
-  const recommendation = useSelector(selectUserInfo);
+  const recommendation = useSelector(getUserData);
   const { dailyRate, notAllowedProducts } = recommendation;
   const dispatch = useDispatch();
 

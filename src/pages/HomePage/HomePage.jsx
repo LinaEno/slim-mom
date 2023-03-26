@@ -8,7 +8,6 @@ import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 
 import { getUserInfo } from 'redux/auth/authOperation';
 
-
 const HomePage = () => {
   const dispatch = useDispatch();
   dispatch(getUserInfo());
