@@ -25,14 +25,32 @@ import {
 import svgIcon from '../../images/bowl_fruits.png';
 import blueberry from '../../images/blueberry.png';
 import kivi1 from '../../images/kivi1.png';
+import mandarin from '../../images/mandarin.png';
+import grape from '../../images/grape.png';
+import banana from '../../images/banana.png';
+import strawberry from '../../images/strawberry.png';
+import apple from '../../images/apple.png';
 
-import { Desktop, Tablet, Default } from '../Media/Media';
+import { Default } from '../Media/Media';
 
-import { useTranslation } from 'react-i18next';
-import { Preview, IconSvg, Blueberry, Kivi1 } from './LoginForm.styled';
+import {
+  Preview,
+  IconSvg,
+  Blueberry,
+  Blueberry3,
+  Kivi1,
+  Kivi2,
+  Mandarin,
+  Banana,
+  Strawberry,
+  Grape,
+  Grape2,
+  Apple,
+  Banana2,
+} from './LoginForm.styled';
 
 const LoginForm = () => {
-  const { t } = useTranslation();
+
   const schema = yup
     .object({
       email: yup
@@ -76,7 +94,7 @@ const LoginForm = () => {
             <Input
               type="email"
               {...register('email')}
-              placeholder={t('register.email')}
+              placeholder="E-mail"
             />
           </Label>
           {errors?.email && (
@@ -86,7 +104,7 @@ const LoginForm = () => {
             <Input
               type={toggle ? 'text' : 'password'}
               {...register('password')}
-              placeholder={t('register.password')}
+              placeholder="Password"
             />
             {!toggle ? (
               <Eye
@@ -112,10 +130,10 @@ const LoginForm = () => {
             <Error style={{ top: '42%' }}>{errors.password.message}</Error>
           )}
           <ButtonsList>
-            <ButtonActive type="submit">{t('register.btnLogIn')}</ButtonActive>
+            <ButtonActive type="submit">Log in</ButtonActive>
             <Button type="submit">
               <StyledNavLink to={'/register'}>
-                {t('register.btnReg')}
+              Register
               </StyledNavLink>
             </Button>
           </ButtonsList>
@@ -123,14 +141,18 @@ const LoginForm = () => {
       </Content>
       <Default>
         <Preview>
-          <Tablet>
-            <Blueberry src={blueberry} alt="blueberry" />
-            <Kivi1 src={kivi1} alt="kivi" />
-            <IconSvg src={svgIcon} alt="img" />
-          </Tablet>
-          <Desktop>
-            <IconSvg src={svgIcon} alt="img" />
-          </Desktop>
+          <Kivi1 src={kivi1} alt="kivi" />
+          <Blueberry src={blueberry} alt="blueberry" />
+          <Banana src={banana} alt="banana" />
+          <Grape src={grape} alt="grape" />
+          <Mandarin src={mandarin} alt="mandarin" />
+          <Strawberry src={strawberry} alt="strawberry" />
+          <Apple src={apple} alt="apple" />
+          <Kivi2 src={kivi1} alt="kivi" />
+          <Blueberry3 src={blueberry} alt="blueberry" />
+          <Grape2 src={grape} alt="grape" />
+          <Banana2 src={banana} alt="banana" />
+          <IconSvg src={svgIcon} alt="img" />
         </Preview>
       </Default>
     </Section>

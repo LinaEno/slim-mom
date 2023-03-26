@@ -8,10 +8,8 @@ import { registration } from 'redux/auth/authOperation';
 import { useState } from 'react';
 
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
-import { useTranslation } from 'react-i18next';
 
 import {
-  Preview,
   Section,
   Content,
   FormBox,
@@ -24,23 +22,44 @@ import {
   StyledNavLink,
   Error,
   Ribbon,
-  IconSvg,
   Title,
 } from './Registration.styled';
 
-import { Desktop, Tablet, Default } from '../Media/Media';
+import svgIcon from '../../images/bowl_fruits.png';
+import blueberry from '../../images/blueberry.png';
+import kivi1 from '../../images/kivi1.png';
+import mandarin from '../../images/mandarin.png';
+import grape from '../../images/grape.png';
+import banana from '../../images/banana.png';
+import strawberry from '../../images/strawberry.png';
+import apple from '../../images/apple.png';
+
+import { Default } from '../Media/Media';
+
+import {
+  Preview,
+  IconSvg,
+  Blueberry,
+  Blueberry3,
+  Kivi1,
+  Kivi2,
+  Mandarin,
+  Banana,
+  Strawberry,
+  Grape,
+  Grape2,
+  Apple,
+  Banana2,
+} from '../LoginForm/LoginForm.styled';
 import css from './Ribbon.module.css';
 
-import svgIcon from '../../images/bowl_vegetable2.png';
-
 const RegistrationForm = () => {
-  const { t } = useTranslation();
 
   const schema = yup
     .object({
       username: yup
         .string()
-        .required(t('Введіть ваше імя'))
+        .required('Введіть ваше імя')
         .min(3, 'Довжина імені повинна бути мінімум 3 символа')
         .max(254, 'Довжина імені повинна бути максимум 254 символа'),
       email: yup
@@ -183,20 +202,18 @@ const RegistrationForm = () => {
       </Content>
       <Default>
         <Preview>
-          <Tablet>
-            <IconSvg
-              src={svgIcon}
-              alt="vegetable"
-              style={{ width: '310px', height: '300px' }}
-            />
-          </Tablet>
-          <Desktop>
-            <IconSvg
-              src={svgIcon}
-              alt="vegetable"
-              style={{ width: '435px', height: '420px' }}
-            />
-          </Desktop>
+          <Kivi1 src={kivi1} alt="kivi" />
+          <Blueberry src={blueberry} alt="blueberry" />
+          <Banana src={banana} alt="banana" />
+          <Grape src={grape} alt="grape" />
+          <Mandarin src={mandarin} alt="mandarin" />
+          <Strawberry src={strawberry} alt="strawberry" />
+          <Apple src={apple} alt="apple" />
+          <Kivi2 src={kivi1} alt="kivi" />
+          <Blueberry3 src={blueberry} alt="blueberry" />
+          <Grape2 src={grape} alt="grape" />
+          <Banana2 src={banana} alt="banana" />
+          <IconSvg src={svgIcon} alt="img" />
         </Preview>
       </Default>
     </Section>
