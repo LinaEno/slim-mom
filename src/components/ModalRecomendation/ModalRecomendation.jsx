@@ -21,7 +21,7 @@ const ModalRecommendation = () => {
 
   const closeModalRecommendation = () => dispatch(closeModal());
 
-  const notAllowedProductsFiltered = notAllowedProducts.slice(0, 4);
+  const notAllowedProductsFiltered = notAllowedProducts?.slice(0, 4);
 
   return (
     <Wrapper>

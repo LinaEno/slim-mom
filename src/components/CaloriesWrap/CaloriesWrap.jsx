@@ -22,7 +22,7 @@ export const CaloriesWrap = () => {
   const recommendation = useSelector(getUserData);
   // const { notAllowedProducts } = recommendation;
 
-  const notAllowedProductsFiltered = recommendation?.notAllowedProducts.slice(
+  const notAllowedProductsFiltered = recommendation?.notAllowedProducts?.slice(
     0,
     4
   );
@@ -56,11 +56,11 @@ export const CaloriesWrap = () => {
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
-            <CaloriesText>n% of normal</CaloriesText>
             <CaloriesText>
               {userSummary?.percentsOfDailyRate
-                ? userSummary.percentsOfDailyRate
+                ? Math.round(userSummary.percentsOfDailyRate)
                 : '00'}
+              % of normal
             </CaloriesText>
           </CaloriesEl>
         </div>
