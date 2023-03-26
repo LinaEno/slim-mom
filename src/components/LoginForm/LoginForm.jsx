@@ -20,15 +20,16 @@ import {
   ButtonActive,
   StyledNavLink,
   Error,
-  IconSvg,
   Title,
 } from '../RegistrationForm/Registration.styled';
-import svgIcon from '../../images/bowl_fruit.png';
+import svgIcon from '../../images/bowl_fruits.png';
+import blueberry from '../../images/blueberry.png';
+import kivi1 from '../../images/kivi1.png';
 
 import { Desktop, Tablet, Default } from '../Media/Media';
 
 import { useTranslation } from 'react-i18next';
-import { Preview } from './LoginForm.styled';
+import { Preview, IconSvg, Blueberry, Kivi1 } from './LoginForm.styled';
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -68,75 +69,67 @@ const LoginForm = () => {
 
   return (
     <Section>
-        <Content>
-            <Title>Log In</Title>
-          <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-            <Label>
-              <Input
-                type="email"
-                {...register('email')}
-                placeholder={t('register.email')}
-              />
-            </Label>
-            {errors?.email && (
-              <Error style={{ top: '14%' }}>{errors.email.message}</Error>
+      <Content>
+        <Title>Log In</Title>
+        <FormBox onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          <Label>
+            <Input
+              type="email"
+              {...register('email')}
+              placeholder={t('register.email')}
+            />
+          </Label>
+          {errors?.email && (
+            <Error style={{ top: '14%' }}>{errors.email.message}</Error>
+          )}
+          <Label>
+            <Input
+              type={toggle ? 'text' : 'password'}
+              {...register('password')}
+              placeholder={t('register.password')}
+            />
+            {!toggle ? (
+              <Eye
+                id="passlock"
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+              >
+                <BsEyeSlashFill />
+              </Eye>
+            ) : (
+              <Eye
+                id="showpass"
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+              >
+                <BsEyeFill />
+              </Eye>
             )}
-            <Label>
-              <Input
-                type={toggle ? 'text' : 'password'}
-                {...register('password')}
-                placeholder={t('register.password')}
-              />
-              {!toggle ? (
-                <Eye
-                  id="passlock"
-                  onClick={() => {
-                    setToggle(!toggle);
-                  }}
-                >
-                  <BsEyeSlashFill />
-                </Eye>
-              ) : (
-                <Eye
-                  id="showpass"
-                  onClick={() => {
-                    setToggle(!toggle);
-                  }}
-                >
-                  <BsEyeFill />
-                </Eye>
-              )}
-            </Label>
-            {errors?.password && (
-              <Error style={{ top: '42%' }}>{errors.password.message}</Error>
-            )}
-            <ButtonsList>
-              <ButtonActive type="submit">
-                {t('register.btnLogIn')}
-              </ButtonActive>
-              <Button type="submit">
-                <StyledNavLink to={'/register'}>
-                  {t('register.btnReg')}
-                </StyledNavLink>
-              </Button>
-            </ButtonsList>
-          </FormBox>
-        </Content>
-        <Default>
+          </Label>
+          {errors?.password && (
+            <Error style={{ top: '42%' }}>{errors.password.message}</Error>
+          )}
+          <ButtonsList>
+            <ButtonActive type="submit">{t('register.btnLogIn')}</ButtonActive>
+            <Button type="submit">
+              <StyledNavLink to={'/register'}>
+                {t('register.btnReg')}
+              </StyledNavLink>
+            </Button>
+          </ButtonsList>
+        </FormBox>
+      </Content>
+      <Default>
         <Preview>
           <Tablet>
-            <IconSvg
-              src={svgIcon}
-              alt="img"
-              style={{ width: '260px', height: '250px' }}
-            />
+            <Blueberry src={blueberry} alt="blueberry" />
+            <Kivi1 src={kivi1} alt="kivi" />
+            <IconSvg src={svgIcon} alt="img" />
           </Tablet>
           <Desktop>
-            <IconSvg
-              src={svgIcon}
-              alt="img"
-              style={{ width: '435px', height: '420px' }}
-            />
+            <IconSvg src={svgIcon} alt="img" />
           </Desktop>
         </Preview>
       </Default>
