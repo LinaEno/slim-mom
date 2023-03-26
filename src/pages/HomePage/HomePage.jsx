@@ -3,7 +3,11 @@ import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProd
 import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
 import { useDispatch } from 'react-redux';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
+
+import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
+
 import { getUserInfo } from 'redux/auth/authOperation';
+
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -16,6 +20,7 @@ const HomePage = () => {
       <DiaryDateCalendar />
       <DiaryAddProductForm />
       <DiaryProductsList />
+      <CaloriesWrap />
     </>
   );
 };
