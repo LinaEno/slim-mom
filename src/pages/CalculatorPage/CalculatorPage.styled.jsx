@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const WrapCont = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+
+  /* @media screen and (min-width: 480px) {
+    max-width: 480px;
+    align-items: center;
+  } */
 
   @media screen and (min-width: 768px) {
     align-items: start;
@@ -16,7 +22,6 @@ export const WrapCont = styled.div`
 `;
 
 export const DiaryWrapper = styled.div`
-  width: 100%;
   padding: 0 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
