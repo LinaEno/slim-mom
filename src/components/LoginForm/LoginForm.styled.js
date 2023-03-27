@@ -5,6 +5,10 @@ export const Preview = styled.div`
   display: block;
   margin: 20px 0 0 0;
   height: 320px;
+
+  @media screen and (min-width: 1280px) {
+    margin: 20px 90px 0 0;
+  }
 `;
 
 export const IconSvg = styled.img`
