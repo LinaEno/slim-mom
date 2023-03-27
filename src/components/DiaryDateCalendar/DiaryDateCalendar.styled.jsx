@@ -1,25 +1,29 @@
 import styled from 'styled-components';
 
-export const CalendarContainer = styled.div`
-  width: 300px;
-`;
-
 export const DatePickerWrapper = styled.button`
-  width: 219px;
-  cursor: pointer;
-  background-color: transparent;
-  color: #212121;
-  padding: 0px;
-  border: none;
-  outline: none;
+  margin-top: 40px;
+  text-align: left;
+  font-weight: 700;
+  font-style: normal;
   font-size: 18px;
   line-height: 21.88px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: transparent;
+  color: #212121;
 
-  @media (min-width: 480px) {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 100px;
+
     font-size: 34px;
     line-height: 41.32px;
-    font-weight: 700;
-    width: 219px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 140px;
   }
 `;
 

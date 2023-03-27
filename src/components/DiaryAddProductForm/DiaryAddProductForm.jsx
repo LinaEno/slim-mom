@@ -3,9 +3,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { productSearch } from '../../redux/diary/operations';
 import { addProduct, getInfo } from 'redux/diary/operations';
-
-// import ButtonIcon from '../../images/buttonDiary.png';
 import { selectDate, selectProducts } from 'redux/diary/selectors';
+import AddDiary from '../../images/addDiary.svg';
+import {
+  AddBtn,
+  AddTitleInput,
+  AddWeightInput,
+  Wrap,
+} from './DiaryAddProductForm.styled';
 
 export const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
@@ -49,45 +54,39 @@ export const DiaryAddProductForm = () => {
   }
 
   return (
-    <div>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div>
-          <div>
-            <input
-              onChange={handleChangeProduct}
-              type="text"
-              name="title"
-              value={title}
-              placeholder="Введіть назву продукту"
-              list="listProducts"
-              required
-            />
-            <datalist id="listProducts">
-              {products?.length > 0 &&
-                products.map(prod => {
-                  return (
-                    <option
-                      key={prod._id}
-                      value={prod.title.ua}
-                      id={prod._id}
-                    />
-                  );
-                })}
-            </datalist>
+    <form autoComplete="off" onSubmit={handleSubmit}>
+      <Wrap>
+        <AddTitleInput
+          onChange={handleChangeProduct}
+          type="text"
+          name="title"
+          value={title}
+          placeholder="Введіть назву продукту"
+          list="listProducts"
+          required
+        />
+        <datalist id="listProducts">
+          {products?.length > 0 &&
+            products.map(prod => {
+              return (
+                <option key={prod._id} value={prod.title.ua} id={prod._id} />
+              );
+            })}
+        </datalist>
 
-            <input
-              onChange={handleChangeWeight}
-              type="number"
-              name="weight"
-              value={weight}
-              placeholder="Введіть грами"
-              required
-            />
+        <AddWeightInput
+          onChange={handleChangeWeight}
+          type="number"
+          name="weight"
+          value={weight}
+          placeholder="Грами"
+          required
+        />
 
-            <button type="submit">+</button>
-          </div>
-        </div>
-      </form>
-    </div>
+        <AddBtn type="submit">
+          <img src={AddDiary} alt="Add button" />
+        </AddBtn>
+      </Wrap>
+    </form>
   );
 };
