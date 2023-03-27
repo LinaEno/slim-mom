@@ -4,16 +4,20 @@ import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProd
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
 import React from 'react';
+import { DiaryWrapper, WrapCont } from './CalculatorPage.styled';
+// import { useMediaQuery } from 'react-responsive';
 
 const CalculatorPage = () => {
   return (
     <Container>
-      <div>
-        <DiaryDateCalendar />
-        <DiaryAddProductForm />
-        <DiaryProductsList />
-      </div>
-      <CaloriesWrap />
+      <WrapCont>
+        <DiaryWrapper>
+          <DiaryDateCalendar />
+          <DiaryAddProductForm />
+          <DiaryProductsList />
+        </DiaryWrapper>
+        <CaloriesWrap />
+      </WrapCont>
     </Container>
   );
 };
