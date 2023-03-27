@@ -22,13 +22,11 @@ export const WrapCont = styled.div`
 `;
 
 export const DiaryWrapper = styled.div`
-  padding: 0 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   line-height: 17.01px;
   letter-spacing: 4%;
   color: #212121;
-  margin: 0 auto;
 
   @media screen and (min-width: 480px) {
     width: 480px;
@@ -36,8 +34,6 @@ export const DiaryWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 610px;
-    padding: 0;
-    margin: 0;
   }
 
   @media screen and (min-width: 1280px) {

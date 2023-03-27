@@ -38,10 +38,6 @@ export const Title = styled.p`
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 16px;
 
-  /* @media screen and (min-width: 480px) and (max-width: 767px) {
-    width: 130px;
-  } */
-
   @media screen and (min-width: 768px) {
     width: 240px;
     margin-right: 24px;
@@ -59,10 +55,6 @@ export const Weight = styled.p`
   text-align: right;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 10px;
-
-  /* @media screen and (min-width: 480px) and (max-width: 767px) {
-    width: 130px;
-  } */
 
   @media screen and (min-width: 768px) {
     width: 106px;
@@ -82,10 +74,6 @@ export const Calorie = styled.p`
   text-align: right;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 16px;
-
-  /* @media screen and (min-width: 480px) and (max-width: 767px) {
-    width: 130px;
-  } */
 
   @media screen and (min-width: 768px) {
     width: 106px;
