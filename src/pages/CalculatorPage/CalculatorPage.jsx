@@ -7,10 +7,7 @@ import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 const CalculatorPage = () => {
   return (
     <Container>
-      <div>
-        <h1>Розрахувати денну норму калорій</h1>
-        <CalculatorCalorieForm />
-      </div>
+      <CalculatorCalorieForm />
       <CaloriesWrap />
     </Container>
   );
