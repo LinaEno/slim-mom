@@ -1,4 +1,4 @@
-import CalculatorCalorieForm from 'components/CalculatorCalorieForm';
+import CalculatorCalorieForm from 'components/CalculatorCalorieForm/CalculatorCalorieForm';
 import { useDispatch } from 'react-redux';
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 import { getUserInfo } from 'redux/auth/authOperation';
@@ -10,10 +10,10 @@ const HomePage = () => {
 
   return (
     <Container>
-      <div>
-        <h1>Розрахувати денну норму калорій</h1>
+      
+      
         <CalculatorCalorieForm />
-      </div>
+      
       <CaloriesWrap />
     </Container>
   );
