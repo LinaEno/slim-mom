@@ -11,10 +11,10 @@ const Navigation = () => {
       {isLoggedIn ? (
         <NavList>
           <li>
-            <NavLinkStyled to={'/'}>Diary</NavLinkStyled>
+            <NavLinkStyled to={'/'}>Щоденник</NavLinkStyled>
           </li>
           <li>
-            <NavLinkStyled to={'/calculator'}>Calculator</NavLinkStyled>
+            <NavLinkStyled to={'/calculator'}>Калькулятор</NavLinkStyled>
           </li>
         </NavList>
       ) : (

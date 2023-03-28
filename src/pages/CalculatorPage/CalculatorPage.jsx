@@ -1,23 +1,17 @@
 import { Container } from 'components/App/App.styled';
+import CalculatorCalorieForm from 'components/CalculatorCalorieForm';
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
-import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
-import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
-import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
-import React from 'react';
-import { DiaryWrapper, WrapCont } from './CalculatorPage.styled';
+
 // import { useMediaQuery } from 'react-responsive';
 
 const CalculatorPage = () => {
   return (
     <Container>
-      <WrapCont>
-        <DiaryWrapper>
-          <DiaryDateCalendar />
-          <DiaryAddProductForm />
-          <DiaryProductsList />
-        </DiaryWrapper>
-        <CaloriesWrap />
-      </WrapCont>
+      <div>
+        <h1>Розрахувати денну норму калорій</h1>
+        <CalculatorCalorieForm />
+      </div>
+      <CaloriesWrap />
     </Container>
   );
 };
