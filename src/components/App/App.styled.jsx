@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   width: 100%;
-
+  flex-direction: column;
   @media screen and (min-width: 480px) {
     max-width: 480px;
     margin: 0 auto;
@@ -17,5 +17,8 @@ export const Container = styled.div`
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
     padding: 0 16px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
   }
 `;
