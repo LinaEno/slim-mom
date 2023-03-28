@@ -34,6 +34,7 @@ export const AddTitleInput = styled.input`
   background-color: transparent;
   border-bottom: 1px solid #e5e5e5;
   outline: none;
+  width: 90vw;
 
   &::placeholder {
     font-weight: 700;
@@ -44,8 +45,14 @@ export const AddTitleInput = styled.input`
     color: #212121;
   }
 
+  @media screen and (min-width: 480px) {
+    width: 440px;
+    margin: 0 auto;
+  }
+
   @media screen and (min-width: 768px) {
     width: 240px;
+    margin: 0;
   }
 `;
 
@@ -55,10 +62,17 @@ export const AddWeightInput = styled.input`
   border-bottom: 1px solid #e5e5e5;
   text-align: left;
   outline: none;
+  width: 90vw;
+
+  @media screen and (min-width: 480px) {
+    width: 440px;
+    margin: 0 auto;
+  }
 
   @media screen and (min-width: 768px) {
     text-align: right;
     width: 105px;
+    margin: 0;
   }
 
   &::placeholder {
