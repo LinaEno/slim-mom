@@ -9,14 +9,19 @@ export const DatePickerWrapper = styled.button`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: transparent;
   color: #212121;
-
+  /* display: block; */
   border: none;
   outline: none;
   cursor: pointer;
 
+  @media screen and (min-width: 480px) {
+    margin-left: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 34px;
     line-height: 41.32px;
+    margin: 0;
   }
 `;
 

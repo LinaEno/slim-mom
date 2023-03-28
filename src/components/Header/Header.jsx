@@ -54,19 +54,19 @@ export const Header = () => {
               </Title>
             </Default>
           </NavLinkStyled>
-            <Navigation />
-            <Default>
-              {isLoggedIn && (
-                <UserBox>
-                  <Avatar>
-                    <img src={randomAvatar} alt="Avatar" />
-                  </Avatar>
-                  <UserName>{userName}</UserName>
-                  <Delimiter></Delimiter>
-                  <ButtonLogout />
-                </UserBox>
-              )}
-            </Default>
+          <Navigation />
+          <Default>
+            {isLoggedIn && (
+              <UserBox>
+                <Avatar>
+                  <img src={randomAvatar} alt="Avatar" />
+                </Avatar>
+                <UserName>{userName}</UserName>
+                <Delimiter></Delimiter>
+                <ButtonLogout />
+              </UserBox>
+            )}
+          </Default>
         </Container>
       </HeaderStyled>
       <Mobile>

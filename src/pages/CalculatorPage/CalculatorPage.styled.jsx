@@ -27,7 +27,6 @@ export const DiaryWrapper = styled.div`
   margin: 0 auto;
   margin-top: 40px;
 
-
   @media screen and (min-width: 480px) {
     width: 480px;
   }
@@ -35,7 +34,7 @@ export const DiaryWrapper = styled.div`
   @media screen and (min-width: 768px) {
     width: 610px;
     margin-top: 100px;
-
+    margin-left: 0;
   }
 
   @media screen and (min-width: 1280px) {

@@ -35,6 +35,7 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
+    padding: 0 16px;
   }
 `;
 
@@ -57,7 +58,7 @@ export const Title = styled.p`
   margin-top: 9px;
   margin-right: 20px;
 
-   @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 35px;
     margin-left: -10px;
   }
@@ -73,12 +74,12 @@ export const UserBox = styled.div`
   align-items: center;
   justify-content: end;
   height: 50px;
-  background-color: #EFF1F3;
+  background-color: #eff1f3;
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
     gap: 12px;
-  background-color: transparent;
+    background-color: transparent;
   }
 
   @media screen and (min-width: 1280px) {
@@ -97,18 +98,18 @@ export const Delimiter = styled.span`
   display: block;
   width: 1px;
   height: 32px;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 `;
 
 export const Avatar = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
-    gap: 12px;
-    & img {
-      width: 40px;
-      height: 40px;
-      background: url(.png);
-      border-radius: 3px;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  gap: 12px;
+  & img {
+    width: 40px;
+    height: 40px;
+    background: url(.png);
+    border-radius: 3px;
   }
 `;
