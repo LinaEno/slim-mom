@@ -29,11 +29,11 @@ export const DiaryWrapper = styled.div`
 
   @media screen and (min-width: 480px) {
     width: 480px;
+    padding: 0;
   }
 
   @media screen and (min-width: 768px) {
     width: 610px;
-    padding: 0;
     margin-top: 100px;
   }
 
