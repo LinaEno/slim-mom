@@ -3,6 +3,7 @@
   justify-content: center;
   gap: 8px;
   list-style: none;
+  padding: 20px 0;
 }
 
 .pageLink {
@@ -26,8 +27,8 @@
 
 .active .pageLink {
   color: #fff;
-  background-color: #24cca7;
-  border-color: #24cca7;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
 }
 
 .disabled .pageLink {

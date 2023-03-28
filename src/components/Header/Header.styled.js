@@ -10,7 +10,7 @@ export const HeaderStyled = styled.header`
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 80px;
+    padding-bottom: 10px;
   }
 `;
 
@@ -35,8 +35,6 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
-    justify-content: flex-start;
-    align-items: flex-end;
   }
 `;
 
@@ -84,7 +82,7 @@ export const UserBox = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
- margin-left: 650px;
+    padding-top: 20px;
   }
 `;
 

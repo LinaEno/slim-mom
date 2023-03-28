@@ -6,3 +6,5 @@ export const selectEatenProducts = state => state.products.eatenProducts;
 export const selectDayId = state => state.products.dayId;
 export const selectItemId = state => state.products.itemId;
 export const selectSummary = state => state.products.summary;
+export const selectPage = state => state.products.page;
+export const selectPerPage = state => state.products.perPage;

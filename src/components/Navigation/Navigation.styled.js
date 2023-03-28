@@ -11,8 +11,8 @@ padding-top: 10px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 20px;
-    margin-bottom: 7px;
+    gap: 40px;
+    padding-top: 20px;
   }
 `
 

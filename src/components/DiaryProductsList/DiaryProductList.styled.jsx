@@ -26,6 +26,10 @@ export const LiStyle = styled.li`
     margin-bottom: 20px;
   }
 
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+
   @media screen and (min-width: 768px) {
     width: 610px;
   }
@@ -81,12 +85,12 @@ export const Calorie = styled.p`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 106px;
     margin-right: 32px;
   }
 `;
 
 export const DelBtn = styled.button`
   border: none;
+  outline: none;
   background-color: transparent;
 `;

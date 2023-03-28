@@ -7,13 +7,20 @@ export const Wrap = styled.div`
   margin-top: 32px;
 
   @media screen and (min-width: 480px) {
-    max-width: 480px;
+    width: 480px;
   }
 
   @media screen and (min-width: 768px) {
+    width: 610px;
     flex-direction: row;
     gap: 24px;
     margin-top: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 48px;
+    width: 633px;
+    flex-direction: row;
   }
 `;
 
@@ -26,6 +33,7 @@ export const AddTitleInput = styled.input`
   border-style: none;
   background-color: transparent;
   border-bottom: 1px solid #e5e5e5;
+  outline: none;
 
   &::placeholder {
     font-weight: 700;
@@ -46,6 +54,7 @@ export const AddWeightInput = styled.input`
   background-color: transparent;
   border-bottom: 1px solid #e5e5e5;
   text-align: left;
+  outline: none;
 
   @media screen and (min-width: 768px) {
     text-align: right;
