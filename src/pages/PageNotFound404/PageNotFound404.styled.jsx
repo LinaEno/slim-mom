@@ -40,6 +40,19 @@ export const Container404 = styled.div`
   width: 100vw;
   height: 100vh;
   border-top: 1px solid #54635a;
+  padding: 20px;
+    margin: 0 auto;
+    max-width: 320px;
+
+    @media screen and (min-width: 480px) {
+    max-width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 20px;
+    margin: 0 auto;
+  }
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
