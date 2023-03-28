@@ -1,37 +1,49 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const Img = styled.img`
-  width: 300px;
-  margin-top: 50px;
+
+
+export const Button = styled.button`
+  background: #24cca7;
+  border: 2px solid #24cca7;
+  border-radius: 18px;
+  color: rgba(255, 255, 255, 1);
   display: block;
-  margin: 0 auto;
+  margin: 0px auto 0;
+  margin-top: 40px;
+  height: 40px;
+  width: 120px;
 
-  @media screen and (min-width: 768px) {
-    width: 500px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 700px;
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: 2px solid #24cca7;
   }
 `;
 
-export const Button = styled.button`
-  padding: 12px 24px;
-  background: #24cca7;
-  border-radius: 18px;
-  color: rgba(255, 255, 255, 1);
-  border: none;
-  display: block;
-  margin: 0 auto;
-  &:hover,
-  &:focus {
-    background: rgba(255, 255, 255, 1);
+export const StyledNavLink = styled(NavLink)`
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+    font-weight: 700;
+
+  &:hover {
     color: #24cca7;
+    font-weight: 700;
   }
 `;
 
 export const Container404 = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
   border-top: 1px solid #54635a;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding: 40px;
+    margin: 0 auto;
+  }
 `;
