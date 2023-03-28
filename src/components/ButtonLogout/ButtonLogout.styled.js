@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-// import { ReactComponent as CloseIcon } from '../../images/svg/exit.svg';
 
 export const Button = styled.button`
   display: flex;
+  font-family: Verdana, sans-serif;
   align-items: center;
   justify-content: flex-start;
   height: 24px;
-  color: #bdbdbd;
+  color: #9B9FAA;
   font-family: inherit;
   font-weight: 400;
-  font-size: 18px;
-  line-height: calc(27 / 18);
+  font-size: 14px;
+  line-height: calc(17 / 14);
   background-color: transparent;
   border: none;
   outline: none;
@@ -21,9 +21,3 @@ export const Button = styled.button`
     min-width: 57px;
   }
 `;
-
-// export const Icon = styled(CloseIcon)`
-//   width: 18px;
-//   height: 18px;
-//   stroke: currentColor;
-// `;

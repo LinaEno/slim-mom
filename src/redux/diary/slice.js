@@ -18,6 +18,8 @@ export const productsSlice = createSlice({
     dayId: null,
     itemId: '',
     summary: null,
+    page: 0,
+    perPage: 8,
   },
 
   extraReducers: builder =>
@@ -48,6 +50,9 @@ export const productsSlice = createSlice({
     setDate(state, { payload }) {
       state.date = payload;
     },
+    setPage: (state, { payload }) => {
+      state.page = payload;
+    },
     deleteUserInfo(state) {
       state.eatenProducts = [];
       state.summary = null;
@@ -56,4 +61,4 @@ export const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setDate, deleteUserInfo } = productsSlice.actions;
+export const { setPage, setDate, deleteUserInfo } = productsSlice.actions;

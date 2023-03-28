@@ -3,51 +3,23 @@ import { NavLink } from 'react-router-dom';
 
 export const Section = styled.section`
   min-height: 100vh;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
 `;
 
-export const Preview = styled.div`
-  display: block;
-  margin: 180px 0 0 0;
-  @media screen and (min-width: 1280px) {
-    margin: 140px 0 0 0;
-  }
-`;
-
-export const IconSvg = styled.img`
-  @media screen and (min-width: 768px) {
-    width: 260;
-    height: 250;
-    /* transform-origin: 50% 0;
-    animation: leaves 6s ease-in-out infinite alternate;
-    @keyframes leaves {
-      0% {
-        transform: scale(1);
-        -webkit-transform: scale(0.9);
-      }
-      100% {
-        transform: scale(2);
-        -webkit-transform: scale(1);
-      } */
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 435px;
-    height: 420px;
-  }
-`;
-
 export const Content = styled.div`
-  background-color: #fff;
   height: 100vh;
   margin-top: 40px;
 
   @media screen and (min-width: 768px) {
     min-width: 350px;
-    margin-top: 160px;
-    padding-left: 40px;
+    margin-top: 100px;
+    margin-right: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 140px;
   }
 `;
 
@@ -61,7 +33,7 @@ export const Title = styled.h1`
   text-transform: uppercase;
   color: #fc842d;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     text-align: left;
   }
 `;
@@ -75,7 +47,7 @@ export const FormBox = styled.form`
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     align-items: flex-start;
   }
 `;
@@ -88,19 +60,27 @@ export const Label = styled.label`
   @media screen and (min-width: 768px) {
     width: 240px;
   }
+
+  @media screen and (min-width: 1280px) {
+    width: 300px;
+  }
 `;
 
 export const Input = styled.input`
   width: 280px;
   height: 36px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding: 10px 0 10px 10px;
   font-weight: 500;
   font-size: 16px;
   line-height: calc(24 / 16);
   color: #000;
   border: none;
   border-bottom: 1px solid #e0e0e0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
   &::placeholder {
     font: inherit;
     font-weight: 700;
@@ -116,6 +96,10 @@ export const Input = styled.input`
 
   @media screen and (min-width: 768px) {
     width: 240px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 300px;
   }
 `;
 
@@ -134,9 +118,8 @@ export const ButtonsList = styled.div`
   gap: 20px;
   margin-top: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
-    gap: 32px;
     height: 108px;
   }
 `;
@@ -147,8 +130,7 @@ export const Button = styled.button`
   border-radius: 30px;
   border: 2px solid #fc842d;
   color: #fc842d;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px #fff;
+  background-color: transparent;
   font-size: 14px;
   line-height: calc(17 / 14);
   font-weight: 700;
@@ -160,6 +142,14 @@ export const Button = styled.button`
     color: #fff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 182px;
+  }
 `;
 
 export const ButtonActive = styled.button`
@@ -169,7 +159,6 @@ export const ButtonActive = styled.button`
   border: 2px solid #fc842d;
   color: #fff;
   background-color: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   font-size: 14px;
   line-height: calc(17 / 14);
   font-weight: 700;
@@ -177,9 +166,17 @@ export const ButtonActive = styled.button`
 
   &:hover {
     border: 2px solid #fc842d;
-    background-color: #fff;
+    background-color: transparent;
     color: #fc842d;
-    box-shadow: 0px 4px 10px #fff;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 182px;
   }
 `;
 

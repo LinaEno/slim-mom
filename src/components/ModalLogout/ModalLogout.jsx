@@ -35,7 +35,7 @@ const ModalLogout = () => {
       <Question>Ви впевнені, що бажаєте вийти?</Question>
       <Content>
         <Default>
-          <Icon src={fruitQuestion} alt="fruit" width={200} />
+          <Icon src={fruitQuestion} alt="fruit" height={163} loading="lazy"/>
         </Default>
         <ButtonsList>
           <Button type="button" onClick={modalLogout}>

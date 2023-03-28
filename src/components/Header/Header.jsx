@@ -1,33 +1,33 @@
 import { ButtonLogout } from 'components/ButtonLogout/ButtonLogout';
 import { useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
 import { randomAvatar } from '../../utils/randomAvatar';
 import { getUserName, selectIsLoggedIn } from 'redux/auth/authSelectors';
-// import { ReactComponent as Logo } from '../../images/Group.svg';
+
 import {
   HeaderStyled,
   UserName,
   Delimiter,
-  Link,
   UserBox,
   Avatar,
   Container,
   Title,
+  NavLinkStyled,
+  Span,
 } from './Header.styled';
 import Navigation from 'components/Navigation/Navigation';
 import logo from '../../images/logo.png';
-import { Desktop, Mobile, Tablet } from 'components/Media/Media';
+import { Desktop, Mobile, Tablet, Default } from 'components/Media/Media';
 
 export const Header = () => {
   const userName = useSelector(getUserName);
-  const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <HeaderStyled>
-      <Container>
-        <Link to={'/'}>
-        <Mobile>
+    <>
+      <HeaderStyled>
+        <Container>
+          <NavLinkStyled to={'/'}>
+            <Mobile>
               <img
                 src={logo}
                 alt="img"
@@ -48,20 +48,39 @@ export const Header = () => {
                 style={{ width: '70px', height: '66px' }}
               />
             </Desktop>
-          <Title>SlimMom</Title>
-        </Link>
-        <Navigation />
+            <Default>
+              <Title>
+                Slim<Span>Mom</Span>
+              </Title>
+            </Default>
+          </NavLinkStyled>
+          <Navigation />
+          <Default>
+            {isLoggedIn && (
+              <UserBox>
+                <Avatar>
+                  <img src={randomAvatar} alt="Avatar" />
+                </Avatar>
+                <UserName>{userName}</UserName>
+                <Delimiter></Delimiter>
+                <ButtonLogout />
+              </UserBox>
+            )}
+          </Default>
+        </Container>
+      </HeaderStyled>
+      <Mobile>
         {isLoggedIn && (
           <UserBox>
             <Avatar>
               <img src={randomAvatar} alt="Avatar" />
             </Avatar>
             <UserName>{userName}</UserName>
-            {isTablet && <Delimiter></Delimiter>}
+            <Delimiter></Delimiter>
             <ButtonLogout />
           </UserBox>
         )}
-      </Container>
-    </HeaderStyled>
+      </Mobile>
+    </>
   );
 };
