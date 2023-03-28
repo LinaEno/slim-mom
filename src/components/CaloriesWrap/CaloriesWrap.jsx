@@ -11,6 +11,7 @@ import {
   CaloriesEl,
   CaloriesText,
   CaloriesTitle,
+  Section,
   Wrapper,
 } from './styledCaloriesWrap';
 
@@ -31,7 +32,7 @@ export const CaloriesWrap = () => {
   }, [date, dispatch]);
 
   return (
-    <section>
+    <Section>
       <h2 style={{ display: 'none' }}>Summary</h2>
       <Wrapper>
         <div>
@@ -39,26 +40,26 @@ export const CaloriesWrap = () => {
           <CaloriesEl>
             <CaloriesText>Left</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalLeft ? userSummary.kcalLeft : '000'}
+              {userSummary?.kcalLeft ? userSummary.kcalLeft : '0'} kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Consumed</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '000'}
+              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '0'} kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Daily rate</CaloriesText>
             <CaloriesText>
-              {userSummary?.dailyRate ? userSummary.dailyRate : '000'}
+              {userSummary?.dailyRate ? userSummary.dailyRate : '0'} kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>
               {userSummary?.percentsOfDailyRate
                 ? Math.round(userSummary.percentsOfDailyRate)
-                : '00'}
+                : '0'}
               % of normal
             </CaloriesText>
           </CaloriesEl>
@@ -74,6 +75,6 @@ export const CaloriesWrap = () => {
           )}
         </div>
       </Wrapper>
-    </section>
+    </Section>
   );
 };
