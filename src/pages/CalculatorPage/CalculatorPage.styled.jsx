@@ -18,7 +18,6 @@ export const WrapCont = styled.div`
 `;
 
 export const DiaryWrapper = styled.div`
-  padding: 0 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   line-height: 17.01px;
@@ -29,7 +28,6 @@ export const DiaryWrapper = styled.div`
 
   @media screen and (min-width: 480px) {
     width: 480px;
-    padding: 0;
   }
 
   @media screen and (min-width: 768px) {
