@@ -1,29 +1,29 @@
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { selectPerPage, selectTransactions } from 'redux/calories/selectors';
-import { setPage } from 'redux/calories/slice';
+import { selectEatenProducts, selectPerPage } from 'redux/diary/selectors';
+import { setPage } from 'redux/diary/slice';
 import css from './Pagination.module.css';
 
-export const Pagination = ({ scrollAnchor }) => {
-  const transactions = useSelector(selectTransactions);
+export const Pagination = () => {
+  const eatenProducts = useSelector(selectEatenProducts);
+
   const itemsPerPage = useSelector(selectPerPage);
   const dispatch = useDispatch();
 
-  const pageCount = Math.ceil(transactions.length / itemsPerPage);
+  const pageCount = Math.ceil(eatenProducts.length / itemsPerPage);
 
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
 
   const handlePageClick = e => {
-    const newPage = (e.selected * itemsPerPage) % transactions.length;
+    const newPage = (e.selected * itemsPerPage) % eatenProducts.length;
     dispatch(setPage(newPage));
-    // scrollAnchor.current.scrollIntoView({ behavior: 'smooth' });
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
-
+console.log(eatenProducts)
   return (
     <>
       {isTablet ? (

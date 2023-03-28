@@ -3,13 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 export const Section = styled.section`
   min-height: 100vh;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
 `;
 
 export const Content = styled.div`
-  background-color: #fff;
   height: 100vh;
   margin-top: 40px;
 
@@ -77,6 +76,11 @@ export const Input = styled.input`
   color: #000;
   border: none;
   border-bottom: 1px solid #e0e0e0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
   &::placeholder {
     font: inherit;
     font-weight: 700;
@@ -126,8 +130,7 @@ export const Button = styled.button`
   border-radius: 30px;
   border: 2px solid #fc842d;
   color: #fc842d;
-  background-color: #fff;
-  box-shadow: 0px 4px 10px #fff;
+  background-color: transparent;
   font-size: 14px;
   line-height: calc(17 / 14);
   font-weight: 700;
@@ -156,7 +159,6 @@ export const ButtonActive = styled.button`
   border: 2px solid #fc842d;
   color: #fff;
   background-color: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   font-size: 14px;
   line-height: calc(17 / 14);
   font-weight: 700;
@@ -164,9 +166,9 @@ export const ButtonActive = styled.button`
 
   &:hover {
     border: 2px solid #fc842d;
-    background-color: #fff;
+    background-color: transparent;
     color: #fc842d;
-    box-shadow: 0px 4px 10px #fff;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   }
 
   @media screen and (min-width: 768px) {

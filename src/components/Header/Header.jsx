@@ -54,9 +54,6 @@ export const Header = () => {
               </Title>
             </Default>
           </NavLinkStyled>
-          <Desktop>
-            <Delimiter></Delimiter>
-          </Desktop>
             <Navigation />
             <Default>
               {isLoggedIn && (
