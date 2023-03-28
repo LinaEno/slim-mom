@@ -1,5 +1,6 @@
 import { Container } from 'components/App/App.styled';
-import CalculatorCalorieForm from 'components/CalculatorCalorieForm';
+import CalculatorCalorieForm from 'components/CalculatorCalorieForm/CalculatorCalorieForm';
+
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 
 // import { useMediaQuery } from 'react-responsive';
