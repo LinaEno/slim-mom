@@ -1,7 +1,7 @@
 import React from 'react';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
-import { NavList, NavLinkStyled } from './Navigation.styled';
+import { NavList, NavLinkStyled, NavListMenu } from './Navigation.styled';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -9,14 +9,14 @@ const Navigation = () => {
   return (
     <nav>
       {isLoggedIn ? (
-        <NavList>
+        <NavListMenu>
           <li>
             <NavLinkStyled to={'/'}>Щоденник</NavLinkStyled>
           </li>
           <li>
             <NavLinkStyled to={'/calculator'}>Калькулятор</NavLinkStyled>
           </li>
-        </NavList>
+        </NavListMenu>
       ) : (
         <NavList>
           <li>
