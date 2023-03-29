@@ -13,6 +13,7 @@ export const DatePickerWrapper = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+  margin-left: 20px;
 
   @media screen and (min-width: 480px) {
     margin-left: 20px;

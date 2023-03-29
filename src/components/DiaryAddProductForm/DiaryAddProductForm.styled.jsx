@@ -35,6 +35,7 @@ export const AddTitleInput = styled.input`
   border-bottom: 1px solid #e5e5e5;
   outline: none;
   width: 90vw;
+  margin: 0 auto;
 
   &::placeholder {
     font-weight: 700;
@@ -63,6 +64,7 @@ export const AddWeightInput = styled.input`
   text-align: left;
   outline: none;
   width: 90vw;
+  margin: 0 auto;
 
   @media screen and (min-width: 480px) {
     width: 440px;
