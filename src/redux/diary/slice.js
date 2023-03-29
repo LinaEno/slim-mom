@@ -19,7 +19,7 @@ export const productsSlice = createSlice({
     itemId: '',
     summary: null,
     page: 0,
-    perPage: 8,
+    perPage: 5,
   },
 
   extraReducers: builder =>

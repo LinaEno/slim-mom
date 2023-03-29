@@ -3,40 +3,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { selectRefreshed } from 'redux/auth/authSelectors';
+import { selectIsLoggedIn, selectRefreshed } from 'redux/auth/authSelectors';
 import { Loader } from '../Loader/Loader';
-import { selectError } from 'redux/calories/selectors';
-import { fetchCurrentUser } from 'redux/auth/authOperation';
+import { fetchCurrentUser, getUserInfo } from 'redux/auth/authOperation';
 import { AuthRoute, NotAuthRoute } from 'routes';
 import Layout from '../Layout/Layout';
+import { selectError } from 'redux/global/selectors';
 
 const CalculatorPage = lazy(() =>
   import('pages/CalculatorPage/CalculatorPage')
 );
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
-// const CurrencyPage = lazy(() => import('pages/Currency/Currency'));
-// const SummaryPage = lazy(() => import('pages/SummaryPage/SummaryPage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-// const NewsPage = lazy(() => import('pages/News/NewsPage'));
 const PageNotFound404 = lazy(() =>
   import('pages/PageNotFound404/PageNotFound404')
 );
 
 export const App = () => {
-  // const error = useSelector(selectError);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectRefreshed);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (error) {
-  //     toast.error('Oops. Something went wrong 😭');
-  //   }
-  // }, [error]);
+  useEffect(() => {
+    if (isLoggedIn) dispatch(getUserInfo());
+  }, [dispatch, isLoggedIn]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error('Oops. Something went wrong 😭');
+    }
+  }, [error]);
   return (
     <>
       <Layout />
@@ -45,14 +47,6 @@ export const App = () => {
       ) : (
         <Suspense fallback={<Loader />}>
           <Routes>
-            {/* <Route
-              path="/"
-              element={
-                <AuthRoute redirectPath="/login">
-                  <DashboardPage />
-                </AuthRoute>
-              }
-            > */}
             <Route
               index
               element={
@@ -69,23 +63,6 @@ export const App = () => {
                 </AuthRoute>
               }
             />
-            {/* <Route
-                path="/currency"
-                element={
-                  <AuthRoute redirectPath="/login">
-                    <CurrencyPage />
-                  </AuthRoute>
-                }
-              />
-              <Route
-                path="/news"
-                element={
-                  <AuthRoute redirectPath="/login">
-                    <NewsPage />
-                  </AuthRoute>
-                }
-              />
-            </Route> */}
             <Route
               path="/login"
               element={

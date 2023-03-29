@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/authSelectors';
-// import { useMediaQuery } from 'react-responsive';
 
 import { getInfo } from 'redux/diary/operations';
 import { selectDate, selectSummary } from 'redux/diary/selectors';
@@ -13,14 +12,13 @@ import {
   CaloriesTitle,
   Section,
   Wrapper,
-} from './styledCaloriesWrap';
+} from './CaloriesWrap.styled';
 
 export const CaloriesWrap = () => {
   const dispatch = useDispatch();
   const userSummary = useSelector(selectSummary);
   const date = useSelector(selectDate);
   const recommendation = useSelector(getUserData);
-  // const { notAllowedProducts } = recommendation;
 
   const notAllowedProductsFiltered = recommendation?.notAllowedProducts?.slice(
     0,
@@ -56,11 +54,11 @@ export const CaloriesWrap = () => {
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
+            <CaloriesText>% of normal</CaloriesText>
             <CaloriesText>
               {userSummary?.percentsOfDailyRate
                 ? Math.round(userSummary.percentsOfDailyRate)
                 : '0'}
-              % of normal
             </CaloriesText>
           </CaloriesEl>
         </div>

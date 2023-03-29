@@ -25,7 +25,6 @@ export const DiaryAddProductForm = () => {
 
   const handleChangeProduct = e => {
     const { value } = e.target;
-    if (value === '') return;
     setTitle(value);
     dispatch(productSearch(title));
   };

@@ -14,7 +14,7 @@ export const Wrap = styled.div`
     width: 610px;
     flex-direction: row;
     gap: 24px;
-    margin-top: 60px;
+    margin-top: 50px;
   }
 
   @media screen and (min-width: 1280px) {

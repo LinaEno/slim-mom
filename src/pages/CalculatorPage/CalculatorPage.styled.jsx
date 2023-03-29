@@ -33,7 +33,7 @@ export const DiaryWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 610px;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: 0;
   }
 
@@ -41,6 +41,6 @@ export const DiaryWrapper = styled.div`
     width: 633px;
     margin-right: 60px;
     margin-left: 0;
-    margin-top: 140px;
+    margin-top: 60px;
   }
 `;

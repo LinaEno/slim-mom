@@ -54,12 +54,11 @@ import {
 import css from './Ribbon.module.css';
 
 const RegistrationForm = () => {
-
   const schema = yup
     .object({
       username: yup
         .string()
-        .required('Введіть ваше імя')
+        .required('Введіть ваше ім`я')
         .min(3, 'Довжина імені повинна бути мінімум 3 символа')
         .max(254, 'Довжина імені повинна бути максимум 254 символа'),
       email: yup

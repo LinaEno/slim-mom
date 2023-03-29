@@ -23,7 +23,7 @@ export const Pagination = () => {
       behavior: 'smooth',
     });
   };
-console.log(eatenProducts)
+
   return (
     <>
       {isTablet ? (
