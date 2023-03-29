@@ -6,7 +6,7 @@ export const UlWrapper = styled.div`
 `;
 
 export const UlStyled = styled.ul`
-  width: 100%;
+  /* width: 100%; */
 
   &:first-child {
     margin-top: 30px;
@@ -21,13 +21,16 @@ export const UlStyled = styled.ul`
 
 export const LiStyle = styled.li`
   display: flex;
+  width: 90%;
+  margin: 0 auto;
 
   &:not(:last-child) {
     margin-bottom: 20px;
   }
 
   @media screen and (min-width: 480px) {
-    width: 480px;
+    width: 440px;
+    margin: 0 auto;
   }
 
   @media screen and (min-width: 768px) {

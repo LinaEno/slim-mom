@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Title = styled.h1`
   width: 90vw;
   font-family: Verdana;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 1.4;
   color: #212121;
@@ -11,15 +11,10 @@ export const Title = styled.h1`
   text-align: left;
 
   @media (min-width: 480px) {
-    font-size: 34px;
-    font-weight: 700;
-    line-height: 1.41;
     width: 400px;
   }
   @media (min-width: 768px) {
     font-size: 34px;
-    font-weight: 700;
-    line-height: 1.41;
     width: 554px;
   }
   @media (min-width: 1280px) {
@@ -161,9 +156,11 @@ export const Button = styled.button`
   border: transparent;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  @media (min-width: 1280px) {
-    /* margin-left: 339px; */
+  @media (max-width: 767.99px) {
+    margin: 0 auto;
+    margin-bottom: 40px;
   }
+
   :hover,
   :focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -179,7 +176,7 @@ export const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     align-items: flex-start;
-    margin-top: 68px;
+    margin-top: 60px;
   }
 
   @media (min-width: 1280px) {

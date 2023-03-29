@@ -18,7 +18,6 @@ export const Container = styled.div`
     max-width: 1280px;
     padding: 0 16px;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
+    justify-content: space-between;
   }
 `;

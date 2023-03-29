@@ -29,8 +29,8 @@ const HomePage = () => {
           <DiaryAddProductForm />
           <DiaryProductsList />
         </DiaryWrapper>
-        <CaloriesWrap />
       </WrapCont>
+      <CaloriesWrap />
     </Container>
   );
 };

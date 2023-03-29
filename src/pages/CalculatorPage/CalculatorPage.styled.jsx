@@ -6,6 +6,7 @@ export const WrapCont = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     align-items: start;
