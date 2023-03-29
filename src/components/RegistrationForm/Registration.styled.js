@@ -92,6 +92,7 @@ export const Input = styled.input`
     border: none;
     border-bottom: 1px solid #000;
     color: #000;
+    background-color: transparent;
   }
 
   @media screen and (min-width: 768px) {
@@ -143,7 +144,6 @@ export const Button = styled.button`
     color: #fff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     transform: scale(1.1);
-
   }
 
   @media screen and (min-width: 768px) {
