@@ -75,17 +75,17 @@ export const Input = styled.input`
   line-height: calc(24 / 16);
   color: #000;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #777a83;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0);
 
   &::placeholder {
     font: inherit;
     font-weight: 700;
     font-size: 14px;
-    color: #9b9faa;
+    color: #777a83;
   }
   &:focus {
     outline: none;
@@ -108,7 +108,7 @@ export const Eye = styled.i`
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: #bdbdbd;
+  color: #777a83;
 `;
 
 export const ButtonsList = styled.div`
@@ -136,11 +136,14 @@ export const Button = styled.button`
   font-weight: 700;
   display: block;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 2px solid #fc842d;
     background-color: #fc842d;
     color: #fff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    transform: scale(1.1);
+
   }
 
   @media screen and (min-width: 768px) {
@@ -164,11 +167,13 @@ export const ButtonActive = styled.button`
   font-weight: 700;
   display: block;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 2px solid #fc842d;
     background-color: transparent;
     color: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    transform: scale(1.1);
   }
 
   @media screen and (min-width: 768px) {

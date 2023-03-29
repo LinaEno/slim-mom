@@ -39,6 +39,26 @@ export const Container = styled.div`
   }
 `;
 
+export const NavWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @media screen and (min-width: 480px) {
+    align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding: 0 16px;
+    align-items: flex-end;
+  }
+`;
+
 export const NavLinkStyled = styled(NavLink)`
   display: flex;
   gap: 10px;
@@ -69,21 +89,33 @@ export const Span = styled.span`
 `;
 
 export const UserBox = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: end;
-  height: 50px;
   background-color: #eff1f3;
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 40px;
     gap: 12px;
     background-color: transparent;
   }
 
   @media screen and (min-width: 1280px) {
     padding-top: 20px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: end;
+  height: 50px;
+
+  @media screen and (min-width: 480px) {
+    max-width: 440px;
+    margin: 0 auto;
   }
 `;
 

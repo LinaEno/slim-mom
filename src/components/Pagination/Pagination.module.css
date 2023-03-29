@@ -3,7 +3,7 @@
   justify-content: center;
   gap: 8px;
   list-style: none;
-  padding: 20px 0;
+  margin: 40px 0;
 }
 
 .pageLink {
@@ -12,7 +12,6 @@
   align-items: center;
   width: 44px;
   height: 44px;
-  padding-top: 3px;
   color: #000;
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -22,13 +21,16 @@
 
 .pageLink:hover,
 .pageLink:focus {
-  background-color: #e9ecef;
+  background-color: #fc842d;
+  color: #fff;
+  border-color: #fc842d;
+
 }
 
 .active .pageLink {
   color: #fff;
-  background-color: #e0e0e0;
-  border-color: #e0e0e0;
+  background-color: #fc842d;
+  border-color: #fc842d;
 }
 
 .disabled .pageLink {

@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 
 export const Button = styled.button`
-  background: #24cca7;
-  border: 2px solid #24cca7;
+  background: #fc842d;
+  border: 2px solid #fc842d;
   border-radius: 18px;
   color: rgba(255, 255, 255, 1);
   display: block;
@@ -17,7 +17,8 @@ export const Button = styled.button`
   &:hover,
   &:focus {
     background: transparent;
-    border: 2px solid #24cca7;
+    border: 2px solid #fc842d;
+    transform: scale(1.1);
   }
 `;
 
@@ -31,7 +32,7 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 700;
 
   &:hover {
-    color: #24cca7;
+    color: #fc842d;
     font-weight: 700;
   }
 `;
