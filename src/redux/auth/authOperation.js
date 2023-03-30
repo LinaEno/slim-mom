@@ -34,14 +34,10 @@ export const registration = createAsyncThunk(
 
 export const logIn = createAsyncThunk(
   'auth/login',
-  async ({ name, email, password }, thunkAPI) => {
+  async (credential, thunkAPI) => {
     try {
-      const { data } = await backend.post('/auth/login', {
-        name,
-        email,
-        password,
-      });
-      token.set(data.token);
+      const { data } = await backend.post('/auth/login', credential);
+      token.set(data.accessToken);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(

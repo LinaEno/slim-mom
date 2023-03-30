@@ -18,11 +18,12 @@ export const productSearch = createAsyncThunk(
       const result = await searchProduct(search);
       return result;
     } catch (e) {
-      return rejectWithValue(
-        e.message,
-        // toast.error('Oops. Something went wrong 😭 in search')
-        toast.error(null)
-      );
+      console.log(e);
+      // return rejectWithValue(
+      // e.message
+      // toast.error('Oops. Something went wrong 😭 in search')
+      // toast.error(null)
+      // );
     }
   }
 );

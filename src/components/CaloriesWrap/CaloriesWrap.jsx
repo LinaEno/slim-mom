@@ -1,11 +1,7 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/authSelectors';
 
-import { getInfo } from 'redux/diary/operations';
-import { selectDate, selectSummary } from 'redux/diary/selectors';
+import { selectSummary } from 'redux/diary/selectors';
 import {
   CaloriesEl,
   CaloriesText,
@@ -17,19 +13,13 @@ import {
 } from './CaloriesWrap.styled';
 
 export const CaloriesWrap = () => {
-  const dispatch = useDispatch();
   const userSummary = useSelector(selectSummary);
-  const date = useSelector(selectDate);
   const recommendation = useSelector(getUserData);
 
   const notAllowedProductsFiltered = recommendation?.notAllowedProducts?.slice(
     0,
     4
   );
-
-  useEffect(() => {
-    dispatch(getInfo(date));
-  }, [date, dispatch]);
 
   return (
     <Section>
@@ -40,19 +30,20 @@ export const CaloriesWrap = () => {
           <CaloriesEl>
             <CaloriesText>Залишилось</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalLeft ? userSummary.kcalLeft : '0'} kcal
+              {userSummary?.kcalLeft ? userSummary.kcalLeft : '000'} kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Спожито</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '0'} kcal
+              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '000'}{' '}
+              kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Денна норма</CaloriesText>
             <CaloriesText>
-              {userSummary?.dailyRate ? userSummary.dailyRate : '0'} kcal
+              {userSummary?.dailyRate ? userSummary.dailyRate : '000'} kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
@@ -60,7 +51,7 @@ export const CaloriesWrap = () => {
             <CaloriesText>
               {userSummary?.percentsOfDailyRate
                 ? Math.round(userSummary.percentsOfDailyRate)
-                : '0'}
+                : '00'}
               %
             </CaloriesText>
           </CaloriesEl>

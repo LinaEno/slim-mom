@@ -11,7 +11,7 @@ export const DiaryDateCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const dispatch = useDispatch();
   const handleChange = date => {
-    const formattedDate = moment(date).format('DD.MM.YYYY');
+    const formattedDate = moment(date).format('YYYY-MM-DD');
     setSelectedDate(date);
     dispatch(setDate(formattedDate));
   };

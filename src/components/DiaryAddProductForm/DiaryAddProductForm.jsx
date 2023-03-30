@@ -24,18 +24,14 @@ export const DiaryAddProductForm = () => {
   }, [dispatch, date]);
 
   const handleChangeProduct = e => {
-    const { value } = e.target;
+    const { value } = e.currentTarget;
+    // if (value === '') return;
     setTitle(value);
     dispatch(productSearch(title));
   };
   const handleChangeWeight = e => {
-    const { value } = e.target;
+    const { value } = e.currentTarget;
     setWeight(value);
-  };
-
-  const reset = () => {
-    setTitle('');
-    setWeight('');
   };
 
   function handleSubmit(e) {
@@ -49,8 +45,12 @@ export const DiaryAddProductForm = () => {
     dispatch(addProduct(newProduct));
 
     reset();
-    e.target.reset();
   }
+
+  const reset = () => {
+    setTitle('');
+    setWeight('');
+  };
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
