@@ -39,7 +39,7 @@ export const AddTitleInput = styled.input`
 
   &::placeholder {
     font-weight: 700;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
     line-height: 17.01px;
     letter-spacing: 4%;
@@ -79,7 +79,7 @@ export const AddWeightInput = styled.input`
 
   &::placeholder {
     font-weight: 700;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
     line-height: 17.01px;
     letter-spacing: 4%;

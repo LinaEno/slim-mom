@@ -23,6 +23,7 @@ export const LiStyle = styled.li`
   display: flex;
   width: 90%;
   margin: 0 auto;
+  align-items: flex-start;
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -65,7 +66,7 @@ export const Weight = styled.p`
   margin-right: 8px;
   text-align: right;
   border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     width: 106px;

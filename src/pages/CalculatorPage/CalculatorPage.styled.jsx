@@ -19,7 +19,7 @@ export const WrapCont = styled.div`
 `;
 
 export const DiaryWrapper = styled.div`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   line-height: 17.01px;
   letter-spacing: 4%;

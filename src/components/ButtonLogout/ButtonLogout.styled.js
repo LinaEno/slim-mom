@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   display: flex;
-  font-family: Verdana, sans-serif;
+  font-family: 'Jost', sans-serif;
   align-items: center;
   justify-content: flex-start;
   height: 24px;
-  color: #9B9FAA;
+  color: #9b9faa;
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;

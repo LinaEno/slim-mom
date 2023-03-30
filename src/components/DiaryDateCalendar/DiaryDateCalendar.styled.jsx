@@ -6,7 +6,7 @@ export const DatePickerWrapper = styled.button`
   font-style: normal;
   font-size: 18px;
   line-height: 21.88px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Jost', sans-serif;
   background-color: transparent;
   color: #212121;
   /* display: block; */

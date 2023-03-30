@@ -24,7 +24,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: Verdana, sans-serif;
+  font-family: 'Jost', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
@@ -82,7 +82,7 @@ export const Input = styled.input`
   background-color: rgba(255, 255, 255, 0);
 
   &::placeholder {
-    font: inherit;
+    font-family: 'Jost', sans-serif;
     font-weight: 700;
     font-size: 14px;
     color: #777a83;
@@ -158,6 +158,7 @@ export const Button = styled.button`
 export const ButtonActive = styled.button`
   height: 44px;
   width: 182px;
+  font-family: 'Jost', sans-serif;
   border-radius: 30px;
   border: 2px solid #fc842d;
   color: #fff;

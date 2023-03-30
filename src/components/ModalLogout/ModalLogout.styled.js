@@ -38,6 +38,7 @@ export const Button = styled.button`
   background-color: #fff;
   font-size: 18px;
   line-height: calc(27 / 18);
+  font-family: 'Jost', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
 
@@ -66,7 +67,7 @@ export const Navigate = styled(NavLink)`
 `;
 
 export const Icon = styled.img`
-display: block;
-margin-left: auto;
-margin-right: auto;
-`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+`;

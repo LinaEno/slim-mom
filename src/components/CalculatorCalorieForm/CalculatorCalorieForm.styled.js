@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Title = styled.h1`
   width: 90vw;
-  font-family: Verdana;
+  font-family: 'Jost', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.4;
@@ -23,7 +23,7 @@ export const Title = styled.h1`
 `;
 
 export const TitleBloor = styled.p`
-  font-family: Verdana;
+  font-family: 'Jost', sans-serif;
   font-weight: bold;
   cursor: text;
   font-size: 14px;
@@ -31,7 +31,7 @@ export const TitleBloor = styled.p`
   color: #212121;
 `;
 export const LabelTitle = styled.p`
-  font-family: Verdana;
+  font-family: 'Jost', sans-serif;
   font-weight: bold;
   cursor: text;
   font-size: 14px;
@@ -112,7 +112,7 @@ export const InputRadio = styled.input`
   appearance: none;
   background-color: #fff;
   margin: 0;
-  font: inherit;
+  font-family: 'Jost', sans-serif;
   color: #fc842d;
   width: 22px;
   height: 22px;
@@ -144,7 +144,7 @@ export const Button = styled.button`
   width: 210px;
   height: 43px;
   padding: 13px 4px;
-  font-family: Verdana;
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.21;
@@ -197,7 +197,7 @@ export const RadioBox = styled.div`
 export const LabelRadio = styled.label`
   display: flex;
   gap: 8px;
-  font-family: Jost;
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.21;
