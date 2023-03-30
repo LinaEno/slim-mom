@@ -8,11 +8,11 @@ import {
 } from './authOperation';
 
 const initialState = {
-  userName: '',
+  username: '',
   userEmail: '',
   userId: null,
   userData: {},
-  token: null,
+  accessToken: null,
   isLoggedIn: false,
   isRefreshing: true,
   refreshToken: null,
@@ -26,49 +26,52 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(registration.fulfilled, (state, { payload }) => {
-        state.userName = payload.username;
+        state.username = payload.user.username;
         state.userEmail = payload.email;
         state.userId = payload.id;
         state.isLoggedIn = true;
-        state.token = payload.accessToken;
+        state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.isLoggedIn = true;
-        state.userName = payload.username;
+        state.username = payload.user.username;
         state.userEmail = payload.email;
-        state.token = payload.accessToken;
+        state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
         state.userId = payload.id;
       })
       .addCase(logOut.fulfilled, state => {
         state.isLoggedIn = false;
-        state.userName = '';
+        state.username = '';
         state.userEmail = '';
-        state.token = null;
+        state.accessToken = null;
         state.refreshToken = null;
         state.sid = null;
         state.isRefreshing = false;
+        state.userId = null;
+        state.userData = {};
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.token = payload.newAccessToken;
+        state.accessToken = payload.newAccessToken;
         state.refreshToken = payload.newRefreshToken;
         state.sid = payload.sid;
       })
       .addCase(fetchCurrentUser.rejected, state => {
         state.isRefreshing = false;
-        state.token = null;
+        state.accessToken = null;
       })
       .addCase(getUserInfo.fulfilled, (state, { payload }) => {
-        state.userName = payload.username;
+        state.username = payload.username;
         state.userEmail = payload.email;
         state.userId = payload.id;
         state.userData = payload.userData;
+        state.isLoggedIn = true;
       });
   },
 });

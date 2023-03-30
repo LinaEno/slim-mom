@@ -39,6 +39,7 @@ export const App = () => {
       toast.error('Oops. Something went wrong 😭');
     }
   }, [error]);
+
   return (
     <>
       <Layout />
@@ -66,7 +67,7 @@ export const App = () => {
             <Route
               path="/login"
               element={
-                <NotAuthRoute redirectPath="/">
+                <NotAuthRoute redirectPath="/calculator">
                   <LoginPage />
                 </NotAuthRoute>
               }
@@ -74,7 +75,7 @@ export const App = () => {
             <Route
               path="/register"
               element={
-                <NotAuthRoute redirectPath="/">
+                <NotAuthRoute redirectPath="/calculator">
                   <RegisterPage />
                 </NotAuthRoute>
               }

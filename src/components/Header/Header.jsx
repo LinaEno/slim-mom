@@ -1,7 +1,7 @@
 import { ButtonLogout } from 'components/ButtonLogout/ButtonLogout';
 import { useSelector } from 'react-redux';
 import { randomAvatar } from '../../utils/randomAvatar';
-import { getUserName, selectIsLoggedIn } from 'redux/auth/authSelectors';
+import { selectUserName, selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 import {
   HeaderStyled,
@@ -21,7 +21,7 @@ import logo from '../../images/logo.png';
 import { Desktop, Mobile, Tablet, Default } from 'components/Media/Media';
 
 export const Header = () => {
-  const userName = useSelector(getUserName);
+  const userName = useSelector(selectUserName);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
@@ -58,8 +58,8 @@ export const Header = () => {
               </Default>
             </NavLinkStyled>
             <Desktop>
-                <Delimiter></Delimiter>
-              </Desktop>
+              <Delimiter></Delimiter>
+            </Desktop>
             <Navigation />
           </NavWrapper>
           <Default>

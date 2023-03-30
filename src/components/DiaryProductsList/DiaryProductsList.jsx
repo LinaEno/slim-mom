@@ -7,7 +7,7 @@ import {
   selectPage,
   selectPerPage,
 } from 'redux/diary/selectors';
-// import { GrClose } from 'react-icons/gr';
+
 import {
   Calorie,
   DelBtn,

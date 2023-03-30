@@ -19,6 +19,7 @@ const ModalLogout = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
+  // console.log(token);
 
   const closeModalLogout = () => dispatch(closeModal());
   const modalLogout = () => {
@@ -35,7 +36,7 @@ const ModalLogout = () => {
       <Question>Ви впевнені, що бажаєте вийти?</Question>
       <Content>
         <Default>
-          <Icon src={fruitQuestion} alt="fruit" height={163} loading="lazy"/>
+          <Icon src={fruitQuestion} alt="fruit" height={163} loading="lazy" />
         </Default>
         <ButtonsList>
           <Button type="button" onClick={modalLogout}>
