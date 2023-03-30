@@ -30,20 +30,26 @@ export const CaloriesWrap = () => {
           <CaloriesEl>
             <CaloriesText>Залишилось</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalLeft ? userSummary.kcalLeft : '000'} kcal
+              {userSummary?.kcalLeft ? Math.round(userSummary.kcalLeft) : '000'}{' '}
+              kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Спожито</CaloriesText>
             <CaloriesText>
-              {userSummary?.kcalConsumed ? userSummary.kcalConsumed : '000'}{' '}
+              {userSummary?.kcalConsumed
+                ? Math.round(userSummary.kcalConsumed)
+                : '000'}{' '}
               kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
             <CaloriesText>Денна норма</CaloriesText>
             <CaloriesText>
-              {userSummary?.dailyRate ? userSummary.dailyRate : '000'} kcal
+              {userSummary?.dailyRate
+                ? Math.round(userSummary.dailyRate)
+                : '000'}{' '}
+              kcal
             </CaloriesText>
           </CaloriesEl>
           <CaloriesEl>
