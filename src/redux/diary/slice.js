@@ -30,7 +30,7 @@ export const productsSlice = createSlice({
       })
 
       .addCase(addProduct.fulfilled, (state, { payload }) => {
-        state.eatenProducts = [...state.eatenProducts, payload.eatenProduct];
+        state.eatenProducts = [payload.eatenProduct, ...state.eatenProducts];
         state.dayId = payload.day.id;
         state.itemId = payload.eatenProduct.id;
         state.summary = payload.daySummary;
@@ -40,6 +40,8 @@ export const productsSlice = createSlice({
         state.eatenProducts = state.eatenProducts.filter(
           item => item.id !== payload.id
         );
+        state.summary.kcalConsumed =
+          state.summary.kcalConsumed - payload.newDaySummary.kcalConsumed;
       })
       .addCase(getInfo.fulfilled, (state, { payload }) => {
         state.eatenProducts = payload.eatenProducts || [];

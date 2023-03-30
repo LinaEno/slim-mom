@@ -58,10 +58,6 @@ export const DiaryProductsList = () => {
               <Calorie>{Math.round(kcal)} ккал </Calorie>
               <DelBtn id={id} type="button" onClick={deleteProductId}>
                 <img src={CloseDiary} alt="close cross" id={id} />
-                {/* <GrClose
-                  style={{ background: 'white', color: '#9b9faa' }}
-                  id={id}
-                /> */}
               </DelBtn>
             </LiStyle>
           ))}
