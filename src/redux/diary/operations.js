@@ -13,7 +13,7 @@ async function searchProduct(search) {
 
 export const productSearch = createAsyncThunk(
   'products/productSearch',
-  async (search, { rejectWithValue }) => {
+  async search => {
     try {
       const result = await searchProduct(search);
       return result;
