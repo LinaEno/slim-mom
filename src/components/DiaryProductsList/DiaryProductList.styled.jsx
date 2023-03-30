@@ -27,6 +27,9 @@ export const LiStyle = styled.li`
   &:not(:last-child) {
     margin-bottom: 20px;
   }
+  &:last-child {
+    margin-bottom: 40px;
+  }
 
   @media screen and (min-width: 480px) {
     width: 440px;
@@ -35,6 +38,7 @@ export const LiStyle = styled.li`
 
   @media screen and (min-width: 768px) {
     width: 610px;
+    margin: 0;
   }
 `;
 
