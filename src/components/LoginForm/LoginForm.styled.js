@@ -22,7 +22,7 @@ export const Blueberry = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 600ms infinite;
+  animation: dws-bounce 3500ms linear 900ms infinite;
   @keyframes dws-bounce {
     0% {
       transform: rotate(0);
@@ -46,7 +46,7 @@ export const Blueberry3 = styled.img`
   left: 180px;
   position: absolute;
   opacity: 0;
-  animation: dws-bounce 2900ms linear 2000ms infinite;
+  animation: dws-bounce 3500ms linear 2600ms infinite;
 `;
 
 export const Kivi1 = styled.img`
@@ -55,7 +55,7 @@ export const Kivi1 = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 1300ms infinite;
+  animation: dws-bounce 3500ms linear 1800ms infinite;
 `;
 
 export const Kivi2 = styled.img`
@@ -64,7 +64,7 @@ export const Kivi2 = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 2900ms infinite;
+  animation: dws-bounce 3500ms linear 3500ms infinite;
 `;
 
 export const Mandarin = styled.img`
@@ -73,7 +73,7 @@ export const Mandarin = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 800ms infinite;
+  animation: dws-bounce 3500ms linear 1000ms infinite;
 `;
 
 export const Grape = styled.img`
@@ -82,7 +82,7 @@ export const Grape = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 2100ms infinite;
+  animation: dws-bounce 3500ms linear 2700ms infinite;
 `;
 
 export const Grape2 = styled.img`
@@ -90,16 +90,16 @@ export const Grape2 = styled.img`
   left: 170px;
   position: absolute;
   opacity: 0;
-  animation: dws-bounce 2900ms linear 3000ms infinite;
+  animation: dws-bounce 3500ms linear 3600ms infinite;
 `;
 
 export const Banana = styled.img`
   width: 55px;
-  left: 37px;
+  left: 30px;
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 2700ms infinite;
+  animation: dws-bounce 3500ms linear 3400ms infinite;
 `;
 
 export const Banana2 = styled.img`
@@ -108,23 +108,23 @@ export const Banana2 = styled.img`
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 1500ms infinite;
+  animation: dws-bounce 3500ms linear 1800ms infinite;
 `;
 
 export const Strawberry = styled.img`
-  width: 55px;
-  left: 90px;
-  position: absolute;
-  opacity: 0;
-
-  animation: dws-bounce 2900ms linear 2100ms infinite;
-`;
-
-export const Apple = styled.img`
   width: 55px;
   left: 65px;
   position: absolute;
   opacity: 0;
 
-  animation: dws-bounce 2900ms linear 800ms infinite;
+  animation: dws-bounce 3500ms linear 1000ms infinite;
+`;
+
+export const Apple = styled.img`
+  width: 55px;
+  left: 90px;
+  position: absolute;
+  opacity: 0;
+
+  animation: dws-bounce 3500ms linear 2500ms infinite;
 `;

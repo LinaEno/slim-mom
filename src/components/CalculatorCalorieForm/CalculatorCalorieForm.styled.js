@@ -57,6 +57,7 @@ export const InputsLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
 
   @media (min-width: 768px) {
     gap: 40px;
@@ -66,6 +67,7 @@ export const InputsRight = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
 
   @media (min-width: 768px) {
     gap: 40px;

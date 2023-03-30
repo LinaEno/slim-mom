@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { getUserData } from 'redux/auth/authSelectors';
 import { selectUserInfo } from 'redux/calories/selectors';
 
@@ -11,6 +10,7 @@ import {
   Kcal,
   ListNotAllowed,
   SpanKcal,
+  StyledNavLink,
   TextNotAllowed,
   Title,
   TitleNotAllowed,
@@ -55,7 +55,7 @@ const ModalRecommendation = () => {
         </ListNotAllowed>
       </BoxKcal>
       <ButtonStart type="button" onClick={closeModalRecommendation}>
-        <NavLink to={'/'}>Почніть худнути</NavLink>
+        <StyledNavLink to={'/'}>Почніть худнути</StyledNavLink>
       </ButtonStart>
     </Wrapper>
   );

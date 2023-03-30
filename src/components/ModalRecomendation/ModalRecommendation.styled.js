@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   @media screen and (min-width: 768px) {
@@ -83,10 +84,26 @@ export const ButtonStart = styled.button`
   display: block;
   margin: 40px auto;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 2px solid #fc842d;
-    background-color: #fff;
-    color: #fc842d;
-    box-shadow: 0px 4px 10px #fff;
+    background-color: #fc842d;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    transform: scale(1.1);
+  }
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: #fff;
   }
 `;
