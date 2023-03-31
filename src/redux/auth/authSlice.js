@@ -26,7 +26,6 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(registration.fulfilled, (state, { payload }) => {
-        console.log('payload registration :>> ', payload);
         state.username = payload.username;
         state.userEmail = payload.email;
         state.userId = payload.id;
@@ -36,7 +35,6 @@ const authSlice = createSlice({
         state.sid = payload.sid;
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
-        console.log('payload logIn :>> ', payload);
         state.isLoggedIn = true;
         state.username = payload.user.username;
         state.userEmail = payload.user.email;

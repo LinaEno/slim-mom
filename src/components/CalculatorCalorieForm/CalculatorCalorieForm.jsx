@@ -64,8 +64,6 @@ const CalculatorCalorieForm = () => {
   const dispatch = useDispatch();
   const userId = useSelector(selectUserId);
 
-  console.log(userId);
-
   const onSubmit = data => {
     console.log(data);
     dispatch(dailyCaloriesId({ ...data, userId }));

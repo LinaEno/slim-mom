@@ -44,7 +44,6 @@ export const productsSlice = createSlice({
           state.summary.kcalConsumed - payload.newDaySummary.kcalConsumed;
       })
       .addCase(getInfo.fulfilled, (state, { payload }) => {
-        console.log('payload :>> ', payload);
         state.eatenProducts = payload.eatenProducts || [];
         state.summary = payload.daySummary || payload;
         // state.summary = payload;

@@ -10,15 +10,11 @@ import {
   SectionSummary,
   Wrapper,
 } from './CaloriesWrap.styled';
-// import { selectUserInfo } from 'redux/calories/selectors';
 
 export const CaloriesWrap = () => {
   const userSummary = useSelector(selectSummary);
 
-  // const recommendation = useSelector(selectUserInfo);
   const recommendation = useSelector(getUserData);
-  console.log(userSummary);
-  console.log(recommendation);
 
   const notAllowedProductsFiltered = recommendation?.notAllowedProducts?.slice(
     0,

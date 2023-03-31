@@ -1,6 +1,7 @@
+import { Loader } from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectUserInfo } from 'redux/calories/selectors';
+import { selectisLoading } from 'redux/global/selectors';
 
 import { closeModal } from 'redux/global/slice';
 import {
@@ -19,10 +20,8 @@ import {
 
 const ModalRecommendation = () => {
   const recommendation = useSelector(selectUserInfo);
-
-  console.log(recommendation);
-
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectisLoading);
 
   const closeModalRecommendation = () => dispatch(closeModal());
 
@@ -32,29 +31,38 @@ const ModalRecommendation = () => {
   );
 
   return (
-    <Wrapper>
-      <Title>Ваша рекомендована щоденна доза споживання калорій складає</Title>
-      <BoxKcal>
-        <Kcal>
-          {recommendation?.dailyRate && Math.round(recommendation.dailyRate)}
-          <SpanKcal> ккал</SpanKcal>
-        </Kcal>
-        <TitleNotAllowed>Продукти, які Вам не слід вживати</TitleNotAllowed>
-        <ListNotAllowed>
-          {notAllowedProductsFiltered?.length > 0 &&
-            notAllowedProductsFiltered.map(prod => {
-              return (
-                <ItemNotAllowed key={prod}>
-                  <TextNotAllowed>{prod}</TextNotAllowed>
-                </ItemNotAllowed>
-              );
-            })}
-        </ListNotAllowed>
-      </BoxKcal>
-      <ButtonStart type="button" onClick={closeModalRecommendation}>
-        <StyledNavLink to={'/'}>Почніть худнути</StyledNavLink>
-      </ButtonStart>
-    </Wrapper>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Wrapper>
+          <Title>
+            Ваша рекомендована щоденна доза споживання калорій складає
+          </Title>
+          <BoxKcal>
+            <Kcal>
+              {recommendation?.dailyRate &&
+                Math.round(recommendation.dailyRate)}
+              <SpanKcal> ккал</SpanKcal>
+            </Kcal>
+            <TitleNotAllowed>Продукти, які Вам не слід вживати</TitleNotAllowed>
+            <ListNotAllowed>
+              {notAllowedProductsFiltered?.length > 0 &&
+                notAllowedProductsFiltered.map(prod => {
+                  return (
+                    <ItemNotAllowed key={prod}>
+                      <TextNotAllowed>{prod}</TextNotAllowed>
+                    </ItemNotAllowed>
+                  );
+                })}
+            </ListNotAllowed>
+          </BoxKcal>
+          <ButtonStart type="button" onClick={closeModalRecommendation}>
+            <StyledNavLink to={'/'}>Почніть худнути</StyledNavLink>
+          </ButtonStart>
+        </Wrapper>
+      )}
+    </>
   );
 };
 
