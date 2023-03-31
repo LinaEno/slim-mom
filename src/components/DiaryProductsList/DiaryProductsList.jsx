@@ -32,9 +32,28 @@ export const DiaryProductsList = () => {
     dispatch(deleteProduct(dayIdObj))
       .unwrap()
       .then(() => {
-        dispatch(getInfo(date));
+        dispatch(getInfo({ date }));
       });
   };
+
+  // const dispatch = useDispatch();
+  // const date = useSelector(state => state.products.currentDate);
+  // const products = useSelector(state => state.products.items);
+  // const idDay = useSelector(state => state.products.dayId);
+
+  // const deleteProduct = e => {
+  //   const dayIdObj = {
+  //     dayId: idDay,
+  //     eatenProductId: e.target.id,
+  //   };
+
+  //   localStorage.setItem('dayIdObj', JSON.stringify(dayIdObj));
+  //   dispatch(deleteProductOperation(dayIdObj))
+  //     .unwrap()
+  //     .then(() => {
+  //       dispatch(userDayInfoOperation({ date }));
+  //     });
+  // };
 
   return (
     <UlWrapper>

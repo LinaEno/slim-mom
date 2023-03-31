@@ -7,10 +7,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from 'redux/store';
 import { BrowserRouter } from 'react-router-dom';
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter 
+    <BrowserRouter
     // basename="/slim-mom/"
     >
       <PersistGate loading={null} persistor={persistor}>

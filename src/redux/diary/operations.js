@@ -75,7 +75,7 @@ export const deleteProduct = createAsyncThunk(
 );
 
 export async function getDayInfo(date) {
-  const { data } = await backend.post('/day/info', { date });
+  const { data } = await backend.post('/day/info', date);
   return data;
 }
 

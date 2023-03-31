@@ -16,26 +16,26 @@ export const UlStyled = styled.ul`
   }
 
   &::-webkit-scrollbar {
-  width: 5px;
-}
- 
-&::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-}
+    width: 5px;
+  }
 
-&::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-}
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+  }
 
   @media screen and (min-width: 768px) {
     &:first-child {
       margin-top: 60px;
     }
     &::-webkit-scrollbar {
-  width: 8px;
-}
+      width: 8px;
+    }
   }
 `;
 
@@ -43,7 +43,7 @@ export const LiStyle = styled.li`
   display: flex;
   width: 90%;
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: stretch;
 
   &:not(:last-child) {
     margin-bottom: 20px;

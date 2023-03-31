@@ -47,7 +47,10 @@ const schema = yup.object().shape({
     .min(40, 'Мінімальне значення 40 кг')
     .max(200, 'Максимальне значення 200 кг')
     .required("Обов'язкове поле"),
-  bloodType: yup.number().required("Обов'язкове поле"),
+  bloodType: yup
+    .number()
+    .typeError("Обов'язкове поле")
+    .required("Обов'язкове поле"),
 });
 
 const CalculatorCalorieForm = () => {
@@ -61,7 +64,10 @@ const CalculatorCalorieForm = () => {
   const dispatch = useDispatch();
   const userId = useSelector(selectUserId);
 
+  console.log(userId);
+
   const onSubmit = data => {
+    console.log(data);
     dispatch(dailyCaloriesId({ ...data, userId }));
   };
 
@@ -152,7 +158,9 @@ const CalculatorCalorieForm = () => {
               </LabelRadio>
             </RadioBox>
             {errors?.bloodType && (
-              <Error style={{ top: '56%', width: '250px' }}>{errors.bloodType.message}</Error>
+              <Error style={{ top: '56%', width: '250px' }}>
+                {errors.bloodType.message}
+              </Error>
             )}
           </InputsRight>
         </InputsWrapper>

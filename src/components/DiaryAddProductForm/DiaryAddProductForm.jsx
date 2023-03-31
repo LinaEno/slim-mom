@@ -11,7 +11,7 @@ import {
   AddWeightInput,
   Wrap,
 } from './DiaryAddProductForm.styled';
-import { selectUserInfo } from 'redux/calories/selectors';
+import moment from 'moment/moment';
 
 export const DiaryAddProductForm = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,10 @@ export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const products = useSelector(selectProducts);
   const date = useSelector(selectDate);
-  const user = useSelector(selectUserInfo);
 
   useEffect(() => {
-    if (user === null) return;
-    dispatch(getInfo(date));
-  }, [dispatch, date, user]);
+    dispatch(getInfo({ date: moment(date).format('yyyy-MM-DD') }));
+  }, [dispatch, date]);
 
   const handleChangeProduct = e => {
     const { value } = e.currentTarget;
@@ -45,6 +43,7 @@ export const DiaryAddProductForm = () => {
       weight,
     };
     dispatch(addProduct(newProduct));
+    dispatch(getInfo({ date }));
 
     reset();
   }

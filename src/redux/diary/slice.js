@@ -12,7 +12,7 @@ export const productsSlice = createSlice({
   initialState: {
     productsData: [],
     dayData: null,
-    date: moment(new Date()).format('YYYY-MM-DD'),
+    date: moment(new Date()).format('yyyy-MM-DD'),
     userInfo: null,
     eatenProducts: [],
     dayId: null,
@@ -44,8 +44,10 @@ export const productsSlice = createSlice({
           state.summary.kcalConsumed - payload.newDaySummary.kcalConsumed;
       })
       .addCase(getInfo.fulfilled, (state, { payload }) => {
+        console.log('payload :>> ', payload);
         state.eatenProducts = payload.eatenProducts || [];
         state.summary = payload.daySummary || payload;
+        // state.summary = payload;
         state.dayId = payload.id;
       }),
   reducers: {

@@ -10,8 +10,9 @@ import moment from 'moment/moment';
 export const DiaryDateCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const dispatch = useDispatch();
+
   const handleChange = date => {
-    const formattedDate = moment(date).format('YYYY-MM-DD');
+    const formattedDate = moment(date).format('yyyy-MM-DD');
     setSelectedDate(date);
     dispatch(setDate(formattedDate));
   };

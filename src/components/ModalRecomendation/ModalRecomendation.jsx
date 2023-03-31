@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserData } from 'redux/auth/authSelectors';
+
 import { selectUserInfo } from 'redux/calories/selectors';
 
 import { closeModal } from 'redux/global/slice';
@@ -19,13 +19,10 @@ import {
 
 const ModalRecommendation = () => {
   const recommendation = useSelector(selectUserInfo);
+
   console.log(recommendation);
-  // const recommendation = useSelector(getUserData);
-  // const { dailyRate, notAllowedProducts } = qwe;
+
   const dispatch = useDispatch();
-  // console.log(recommendation);
-  // console.log(dailyRate);
-  // console.log(notAllowedProducts);
 
   const closeModalRecommendation = () => dispatch(closeModal());
 
