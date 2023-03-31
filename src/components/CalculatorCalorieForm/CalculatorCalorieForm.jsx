@@ -83,13 +83,13 @@ const CalculatorCalorieForm = () => {
               />
             </LabelTitle>
             {errors?.height && (
-              <Error style={{ top: '33%' }}>{errors.height.message}</Error>
+              <Error style={{ top: '20%' }}>{errors.height.message}</Error>
             )}
             <LabelTitle>
               <Input type="number" {...register('age')} placeholder="Вік *" />
             </LabelTitle>
             {errors?.age && (
-              <Error style={{ top: '33%' }}>{errors.age.message}</Error>
+              <Error style={{ top: '62%' }}>{errors.age.message}</Error>
             )}
             <LabelTitle>
               <Input
@@ -99,7 +99,7 @@ const CalculatorCalorieForm = () => {
               />
             </LabelTitle>
             {errors?.weight && (
-              <Error style={{ top: '33%' }}>{errors.weight.message}</Error>
+              <Error style={{ top: '102%' }}>{errors.weight.message}</Error>
             )}
           </InputsLeft>
           <InputsRight>
@@ -111,7 +111,7 @@ const CalculatorCalorieForm = () => {
               />
             </LabelTitle>
             {errors?.desiredWeight && (
-              <Error style={{ top: '33%' }}>
+              <Error style={{ top: '20%' }}>
                 {errors.desiredWeight.message}
               </Error>
             )}
@@ -152,7 +152,7 @@ const CalculatorCalorieForm = () => {
               </LabelRadio>
             </RadioBox>
             {errors?.bloodType && (
-              <Error style={{ top: '33%' }}>{errors.bloodType.message}</Error>
+              <Error style={{ top: '56%', width: '250px' }}>{errors.bloodType.message}</Error>
             )}
           </InputsRight>
         </InputsWrapper>

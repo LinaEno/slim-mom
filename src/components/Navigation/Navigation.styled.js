@@ -16,7 +16,7 @@ export const NavListMenu = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 40px;
+    gap: 20px;
     padding: 20px 0 6px 20px;
     margin-left: 0;
   }
@@ -29,11 +29,11 @@ export const NavList = styled.ul`
 
   @media screen and (min-width: 768px) {
     padding-top: 0;
-    margin-left: 270px;
+    margin-left: 370px;
   }
 
   @media screen and (min-width: 1280px) {
-    gap: 40px;
+    gap: 20px;
     padding: 20px 0 6px 20px;
     margin-left: 0;
 

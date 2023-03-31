@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getUserData } from 'redux/auth/authSelectors';
-
+// import { getUserData } from 'redux/auth/authSelectors';
 import { selectSummary } from 'redux/diary/selectors';
 import {
   CaloriesEl,
@@ -11,10 +10,11 @@ import {
   SectionSummary,
   Wrapper,
 } from './CaloriesWrap.styled';
+import { selectUserInfo } from 'redux/calories/selectors';
 
 export const CaloriesWrap = () => {
   const userSummary = useSelector(selectSummary);
-  const recommendation = useSelector(getUserData);
+  const recommendation = useSelector(selectUserInfo);
 
   const notAllowedProductsFiltered = recommendation?.notAllowedProducts?.slice(
     0,

@@ -27,11 +27,16 @@ export const Title = styled.h1`
   font-family: 'Jost', sans-serif;
   font-weight: 700;
   font-size: 14px;
-  line-height: 17px;
+  line-height: calc(17 / 14);
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #fc842d;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  line-height: calc(24 / 18);
+  }
 
   @media screen and (min-width: 1280px) {
     text-align: left;

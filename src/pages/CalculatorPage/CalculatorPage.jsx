@@ -3,8 +3,6 @@ import CalculatorCalorieForm from 'components/CalculatorCalorieForm/CalculatorCa
 
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 
-// import { useMediaQuery } from 'react-responsive';
-
 const CalculatorPage = () => {
   return (
     <Container>

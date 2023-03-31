@@ -8,7 +8,7 @@ export const Section = styled.section`
     width: 440px;
   }
   @media screen and (max-width: 767.99px) {
-    margin: 0 auto;
+    margin: 40px auto 0;
   }
   @media screen and (min-width: 768px) {
     margin: 0;

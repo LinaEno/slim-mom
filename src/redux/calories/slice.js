@@ -29,9 +29,6 @@ const caloriesSlice = createSlice({
         state.user = payload;
         state.userId = payload.id;
       }),
-  // .addCase(getUserCaloriesInfo.fulfilled, (state, { payload }) => {
-  //   state.user = payload;
-  // }),
 });
 
 export const caloriesReducer = caloriesSlice.reducer;

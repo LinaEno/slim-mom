@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
-// import { getUserInfo } from 'redux/auth/authOperation';
 import { Container } from 'components/App/App.styled';
 import {
   DiaryWrapper,
@@ -12,14 +11,17 @@ import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsLis
 import { getInfo } from 'redux/diary/operations';
 import { useEffect } from 'react';
 import { selectDate } from 'redux/diary/selectors';
+import { selectUserInfo } from 'redux/calories/selectors';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const date = useSelector(selectDate);
+  const user = useSelector(selectUserInfo);
 
   useEffect(() => {
+    if (user === null) return;
     dispatch(getInfo(date));
-  }, [date, dispatch]);
+  }, [date, dispatch, user]);
 
   return (
     <Container>
