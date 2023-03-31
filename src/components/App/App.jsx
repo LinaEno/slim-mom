@@ -27,8 +27,7 @@ export const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    if (!isLoggedIn) return;
-    dispatch(fetchCurrentUser());
+    if (isLoggedIn) dispatch(fetchCurrentUser());
   }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
