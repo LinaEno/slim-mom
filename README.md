@@ -25,12 +25,13 @@ mailto:linabudkova35@gmail.com;
 
 Developers:
 
-Marina Illinova-mailto:marina.illinova@gmail.com;
+Marina Illinova - https://github.com/Maryinad; mailto:marina.illinova@gmail.com;
 
-Hanna Moiseinko -https://github.com/HannaMois,mailto:hannamois135@gmail.com;
+Hanna Moiseinko - https://github.com/HannaMois; mailto:hannamois135@gmail.com;
 
-Anna Atiskova -https://github.com/Atiskova,mailto:anna.atiskova@gmail.com;
+Anna Atiskova - https://github.com/Atiskova; mailto:anna.atiskova@gmail.com;
 
-YuliyaMogolivets -https://github.com/YuliiaMoholivets,mailto:veronikaanddiana1@gmail.com;
+YuliyaMogolivets - https://github.com/YuliiaMoholivets;
+mailto:veronikaanddiana1@gmail.com;
 
-Bespiata Halyna - mailto:gbespiata@gmail.com,https://github.com/GalinaBespiata;
+Bespiata Halyna - https://github.com/GalinaBespiata; mailto:gbespiata@gmail.com
