@@ -9,9 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter
-    // basename="/slim-mom/"
-    >
+    <BrowserRouter basename="/slim-mom/">
       <PersistGate loading={null} persistor={persistor}>
         <Provider store={store}>
           <App />
