@@ -81,7 +81,7 @@ export const getInfo = createAsyncThunk(
       const result = await getDayInfo(dateInfo);
       return result;
     } catch (e) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(e.message);
     }
   }
 );
