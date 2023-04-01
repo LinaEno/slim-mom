@@ -17,11 +17,13 @@ import {
   TitleNotAllowed,
   Wrapper,
 } from './ModalRecommendation.styled';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 const ModalRecommendation = () => {
   const recommendation = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectisLoading);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const closeModalRecommendation = () => dispatch(closeModal());
 
@@ -58,7 +60,9 @@ const ModalRecommendation = () => {
             </ListNotAllowed>
           </BoxKcal>
           <ButtonStart type="button" onClick={closeModalRecommendation}>
-            <StyledNavLink to={'/'}>Почніть худнути</StyledNavLink>
+            <StyledNavLink to={isLoggedIn ? '/diary' : '/login'}>
+              Почніть худнути
+            </StyledNavLink>
           </ButtonStart>
         </Wrapper>
       )}

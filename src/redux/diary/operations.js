@@ -18,12 +18,7 @@ export const productSearch = createAsyncThunk(
       const result = await searchProduct(search);
       return result;
     } catch (e) {
-      console.log(e);
-      // return rejectWithValue(
-      // e.message
-      // toast.error('Oops. Something went wrong 😭 in search')
-      // toast.error(null)
-      // );
+      return e.message;
     }
   }
 );
@@ -54,7 +49,7 @@ export const addProduct = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭 in add')
+        toast.error('Oops. Something went wrong 😭')
       );
     }
   }
@@ -68,7 +63,7 @@ export const deleteProduct = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭 in delete')
+        toast.error('Oops. Something went wrong 😭')
       );
     }
   }
@@ -88,8 +83,7 @@ export const getInfo = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(
         e.message,
-        // toast.error('Oops. Something went wrong 😭')
-        toast.error(null)
+        toast.warning('Спочатку розрахуйте денну норму калорій')
       );
     }
   }

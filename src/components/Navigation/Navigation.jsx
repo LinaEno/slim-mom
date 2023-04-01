@@ -11,7 +11,7 @@ const Navigation = () => {
       {isLoggedIn ? (
         <NavListMenu>
           <li>
-            <NavLinkStyled to={'/'}>Щоденник</NavLinkStyled>
+            <NavLinkStyled to={'/diary'}>Щоденник</NavLinkStyled>
           </li>
           <li>
             <NavLinkStyled to={'/calculator'}>Калькулятор</NavLinkStyled>

@@ -13,7 +13,7 @@ export const dailyCalories = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭')
+        toast.error('Oops. Something went wrong 😭 in dr')
       );
     }
   }
@@ -38,7 +38,7 @@ export const dailyCaloriesId = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭')
+        toast.error('Oops. Something went wrong 😭 in dri')
       );
     }
   }

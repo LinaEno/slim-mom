@@ -45,8 +45,7 @@ export const productsSlice = createSlice({
       })
       .addCase(getInfo.fulfilled, (state, { payload }) => {
         state.eatenProducts = payload.eatenProducts || [];
-        state.summary = payload.daySummary || payload;
-        // state.summary = payload;
+        state.summary = payload.daySummary || null;
         state.dayId = payload.id;
       }),
   reducers: {

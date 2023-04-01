@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { dailyCaloriesId } from 'redux/calories/operations';
-import { selectUserId } from 'redux/auth/authSelectors';
+import { dailyCalories, dailyCaloriesId } from 'redux/calories/operations';
+import { selectIsLoggedIn, selectUserId } from 'redux/auth/authSelectors';
 import { openModalRecommendation } from 'redux/global/slice';
 import {
   LabelTitle,
@@ -21,6 +21,7 @@ import {
   Wrapper,
 } from './CalculatorCalorieForm.styled';
 import { Error } from 'components/RegistrationForm/Registration.styled';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object().shape({
   height: yup
@@ -63,10 +64,16 @@ const CalculatorCalorieForm = () => {
   });
   const dispatch = useDispatch();
   const userId = useSelector(selectUserId);
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const onSubmit = data => {
-    console.log(data);
-    dispatch(dailyCaloriesId({ ...data, userId }));
+    if (isLoggedIn) {
+      dispatch(dailyCaloriesId({ ...data, userId }));
+      navigate('/diary');
+    } else {
+      dispatch(dailyCalories(data));
+    }
   };
 
   const openModal = () => {

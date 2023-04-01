@@ -1,14 +1,13 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { selectIsLoggedIn, selectRefreshed } from 'redux/auth/authSelectors';
 import { Loader } from '../Loader/Loader';
 import { fetchCurrentUser, getUserInfo } from 'redux/auth/authOperation';
 import { AuthRoute, NotAuthRoute } from 'routes';
 import Layout from '../Layout/Layout';
-import { selectError } from 'redux/global/selectors';
 
 const CalculatorPage = lazy(() =>
   import('pages/CalculatorPage/CalculatorPage')
@@ -16,12 +15,12 @@ const CalculatorPage = lazy(() =>
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'));
 const PageNotFound404 = lazy(() =>
   import('pages/PageNotFound404/PageNotFound404')
 );
 
 export const App = () => {
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectRefreshed);
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -29,19 +28,10 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
-  // useEffect(() => {
-  //   if (isLoggedIn) dispatch(fetchCurrentUser());
-  // }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
     if (isLoggedIn) dispatch(getUserInfo());
   }, [dispatch, isLoggedIn]);
-
-  useEffect(() => {
-    if (error) {
-      toast.error('Oops. Something went wrong 😭');
-    }
-  }, [error]);
 
   return (
     <>
@@ -52,11 +42,11 @@ export const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route
-              index
+              path="/"
               element={
-                <AuthRoute redirectPath="/login">
+                <NotAuthRoute redirectPath="/login">
                   <HomePage />
-                </AuthRoute>
+                </NotAuthRoute>
               }
             />
             <Route
@@ -64,6 +54,14 @@ export const App = () => {
               element={
                 <AuthRoute redirectPath="/login">
                   <CalculatorPage />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/diary"
+              element={
+                <AuthRoute redirectPath="/login">
+                  <DiaryPage />
                 </AuthRoute>
               }
             />
@@ -87,7 +85,7 @@ export const App = () => {
           </Routes>
           <ToastContainer
             position="top-center"
-            autoClose={5000}
+            autoClose={3000}
             closeOnClick
             theme="colored"
           />

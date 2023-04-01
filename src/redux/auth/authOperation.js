@@ -41,7 +41,7 @@ export const registration = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭')
+        toast.error('Oops. Something went wrong 😭 in reg')
       );
     }
   }
@@ -57,7 +57,7 @@ export const logIn = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(
         e.message,
-        toast.error('Oops. Something went wrong 😭')
+        toast.error('Oops. Something went wrong 😭 in log')
       );
     }
   }
@@ -99,17 +99,12 @@ export const fetchCurrentUser = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { sid, refreshToken } = state.auth;
-      if (!sid) return thunkAPI.rejectWithValue(
-        toast.error('Oops. Something went wrong 😭')
-      );
+      if (!sid) return thunkAPI.rejectWithValue('No sid');
       const result = await refreshUser(sid, refreshToken);
       token.set(result.newAccessToken);
       return result;
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.message,
-        toast.error('Oops. Something went wrong 😭')
-      );
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -124,21 +119,17 @@ export const getUserInfo = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
+
       const persistedToken = state.auth.accessToken;
       if (!persistedToken) {
-        return thunkAPI.rejectWithValue(
-          toast.error('Oops. Something went wrong 😭')
-        );
+        return thunkAPI.rejectWithValue('No token');
       }
       token.set(persistedToken);
       const result = await getUser();
 
       return result;
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.message,
-        toast.error('Oops. Something went wrong 😭')
-      );
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

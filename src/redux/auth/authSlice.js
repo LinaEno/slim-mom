@@ -56,16 +56,15 @@ const authSlice = createSlice({
         state.userData = {};
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
-        state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.accessToken = payload.newAccessToken;
         state.refreshToken = payload.newRefreshToken;
         state.sid = payload.sid;
       })
-      .addCase(fetchCurrentUser.rejected, state => {
+      .addCase(fetchCurrentUser.rejected, (state, { payload }) => {
         state.isRefreshing = false;
-        state.accessToken = null;
+        state.isLoggedIn = false;
       })
       .addCase(getUserInfo.fulfilled, (state, { payload }) => {
         state.username = payload.username;

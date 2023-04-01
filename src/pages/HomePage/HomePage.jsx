@@ -1,39 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { CaloriesWrap } from 'components/CaloriesWrap/CaloriesWrap';
 import { Container } from 'components/App/App.styled';
-import {
-  DiaryWrapper,
-  WrapCont,
-} from 'pages/CalculatorPage/CalculatorPage.styled';
-import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
-import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
-import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
-import { getInfo } from 'redux/diary/operations';
-import { useEffect } from 'react';
-import { selectDate } from 'redux/diary/selectors';
-import { selectUserInfo } from 'redux/calories/selectors';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import CalculatorCalorieForm from 'components/CalculatorCalorieForm/CalculatorCalorieForm';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const date = useSelector(selectDate);
-  const user = useSelector(selectUserInfo);
-
-  useEffect(() => {
-    if (user === null) return;
-    dispatch(getInfo(date));
-  }, [date, dispatch, user]);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <Container>
-      <WrapCont>
-        <DiaryWrapper>
-          <DiaryDateCalendar />
-          <DiaryAddProductForm />
-          <DiaryProductsList />
-        </DiaryWrapper>
-      </WrapCont>
-      <CaloriesWrap />
-    </Container>
+    <>
+      {!isLoggedIn && (
+        <Container>
+          <CalculatorCalorieForm />
+        </Container>
+      )}
+      {isLoggedIn && <Navigate to="/diary" />}
+    </>
   );
 };
 
