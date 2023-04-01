@@ -81,10 +81,7 @@ export const getInfo = createAsyncThunk(
       const result = await getDayInfo(dateInfo);
       return result;
     } catch (e) {
-      return rejectWithValue(
-        e.message,
-        toast.warning('Спочатку розрахуйте денну норму калорій')
-      );
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
