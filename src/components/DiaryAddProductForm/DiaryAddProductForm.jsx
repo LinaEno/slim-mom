@@ -56,7 +56,6 @@ export const DiaryAddProductForm = () => {
     setWeight('');
   };
 
-  console.log(products);
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
