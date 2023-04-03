@@ -24,10 +24,13 @@ export const DiaryAddProductForm = () => {
     dispatch(getInfo({ date: moment(date).format('yyyy-MM-DD') }));
   }, [dispatch, date]);
 
+  useEffect(() => {
+    if (title.length >= 2) dispatch(productSearch(title));
+  }, [dispatch, title]);
+
   const handleChangeProduct = e => {
     const { value } = e.currentTarget;
     setTitle(value);
-    dispatch(productSearch(title));
   };
   const handleChangeWeight = e => {
     const { value } = e.currentTarget;
@@ -53,6 +56,8 @@ export const DiaryAddProductForm = () => {
     setWeight('');
   };
 
+  console.log(products);
+
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
       <Wrap>
@@ -67,7 +72,7 @@ export const DiaryAddProductForm = () => {
         />
         <datalist id="listProducts">
           {products?.length > 0 &&
-            products.map(prod => {
+            products?.map(prod => {
               return (
                 <option key={prod._id} value={prod.title.ua} id={prod._id} />
               );
